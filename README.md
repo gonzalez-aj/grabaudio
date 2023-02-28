@@ -1,3 +1,5 @@
+#Songlue [![Netlify Status](https://api.netlify.com/api/v1/badges/05b738ef-f461-4db8-81e6-54135f2c1883/deploy-status)](https://app.netlify.com/sites/songlue/deploys)
+
 # React/Next.js Template
 
 [See Live Demo of this Template](https://drt-next-js-template.netlify.app/)
