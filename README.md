@@ -1,80 +1,62 @@
-#Songlue [![Netlify Status](https://api.netlify.com/api/v1/badges/05b738ef-f461-4db8-81e6-54135f2c1883/deploy-status)](https://app.netlify.com/sites/songlue/deploys)
+# Songlue [![Netlify Status](https://api.netlify.com/api/v1/badges/05b738ef-f461-4db8-81e6-54135f2c1883/deploy-status)](https://app.netlify.com/sites/songlue/deploys)
 
-# React/Next.js Template
-
-[See Live Demo of this Template](https://drt-next-js-template.netlify.app/)
+[View The App Here](https://songlue.netlify.app/)
 
 ## Topics
 - [Get Started](#get-started)
-- [Starting the Project](#starting-the-project)
-- [Using axios](#using-axios)
-- [Deploying on Netlify](#deploying-on-netlify)
 ___
-## Getting Started
-### Use Template
-#### 1. To get started, click the GREEN "Use this Template" button at the top of the repo
-<img width="915" alt="Screen Shot 2022-07-06 at 12 54 01 PM" src="https://user-images.githubusercontent.com/29741570/177612998-4aac9237-5a1e-4f13-8ae0-468587521564.png">
+## About the user
+- The ideal user for Songlue is a musician/songwriter/composer trying to organize their songs/composition ideas
 
-#### 2. Make sure YOUR github account is selected in the dropdown and name your project
-<img width="763" alt="Screen Shot 2022-07-06 at 12 54 48 PM" src="https://user-images.githubusercontent.com/29741570/177613126-dd38f678-7553-4f27-8a4a-75680f14d71e.png">
+## Features
+- Full CRUD
+- Searches Snippets
+- Private and public snippets/songs
 
-#### 3. Clone your new repo to your local machine
-#### 4. Go to the **NEXT** section
+## Video Walkthrough of Songlue
 
-## Starting the Project
-1. Create a Firebase project and set up authentication. Use [these videos](https://vimeo.com/showcase/codetracker-firebase) as a refresher if needed.
-1. Create a `.env` file at the root of the project
-1. Copy/Paste the contents of the `.env.sample` file to your newly created `.env` file.
-1. Copy over all of your Firebase values into the `.env` file.
-1. Open the `package.json` file and change the `name` property to the name of your application, and `author` to  your name.
-1. From your command line, be in the root directory and run `npm install` OR `npm i` for short.
-1. Next, run `npm run prepare`. This command sets up husky to track eslint errors on commit that will make your deploy fail on Netlify.
-1. To start your application, run `npm run dev`. THIS IS THE COMMAND YOU WILL USE TO RUN YOUR DEVELOPMENT SERVER FROM NOW ON.
-1. Open [http://localhost:3000](http://localhost:3000) with your browser.
+## Relevant Links
+- [Check out the deployed site](https://songlue.netlify.app/)
+- [Figma Wireframes](https://www.figma.com/file/qlpuv1O0nBa1gsaRUMydaS/Songlue?node-id=0%3A1&t=dKNU5YLDvctIhoVa-1)
 
-### If you see this, you are set to go!
-<img width="450" alt="Screen Shot 2022-07-06 at 1 07 27 PM" src="https://user-images.githubusercontent.com/29741570/177615077-9b6a75bc-0260-4d29-bb88-bd95a3140687.png">
+- [ERD](https://dbdiagram.io/d/63ead9d4296d97641d80a8bd)
+<img width="400" alt="Songlue ERD made using dbDiagram" src="https://user-images.githubusercontent.com/114124374/222018077-3e8f43cb-0196-4a95-a518-1320d6a4d26c.png">
 
+- Assumption: A song can have many snippets, but each snippet is associated with one song. 
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- [Flowchart](https://docs.google.com/presentation/d/1PAdFeMxQmASaOPz7SHPIN45Hd68XpYkwQtB-qsT0OXQ/edit?usp=sharing)
 
-**NOTES:** 
-- If you see the following error, you did not follow all the setup steps correctly and failed to add your Firebase creds. Go back and do that NOW.
-
-<img width="1043" alt="Screen Shot 2022-07-06 at 11 18 45 AM" src="https://user-images.githubusercontent.com/29741570/177612501-c2628f18-4bbd-4de9-aae6-27ffba1172d6.png">
-
-### Using Axios
-> For every file you will need to make an XHR request in, you will need to require Axios
-```js
-import axios from 'axios';
-
-const examplePromise = () => {
-  axios.get('http://localhost:3001/example')
-    .then((data) => {
-      console.warn(data);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-});
+## Code Snippet
+```
+const storage = firebase.storage();
 ```
 
-### Deploying on Netlify
-Netlify will automatically detect your project and prepopulate the settings, but should something go wrong and it does not, here are the commands:
+## Project Screenshots
 
-- Build Command: `npm run build`
-- Publish directory: `.next`
+## Get Started
+1. Create a [Firebase](https://firebase.google.com/) project and set up authentication. 
+1. Clone Songrab to your local server
+```
+git@github.com:AngieMGonzalez/grabaudio.git
+```
+1. Create a `.env` file at the root of the project
+1. Copy the environmental variables from Firebase and paste them as the properties of the keys found in your newly created `.env` file
+1. Import sample data found in `data` folder in to the Realtime Database 
+1. From your command line, be in the root directory and `run npm install` OR `npm i` for short
+1. Then, run `npm run prepare`
+1. To start Songlue, run `npm run dev`
+1. Open [http://localhost:3000](http://localhost:3000) with your browser
 
-#### Additional Steps to Take on Netlify
-- Add Environmental Variables
-    - Any Enviromental variables you are using in your `.env` file should be added to Netlify. 
-        - Go to Site settings > Build & deploy > Environment > Environment variables and the keys and values there.
+### Tech/framework used
+**Built with** 
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
+![Netlify](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7)
+![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
 
-- Update Firebase URL Settings
-    - In Firebase under Authentication select sign in methods, scroll to Authorized domains. Add your Netlify URL.
-        
-## Learn More about Next.js
-To learn more about Next.js, take a look at the following resources:
+### API Reference
+![Firebase Realtime Database and Firestore Cloud Storage](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contributors
+- [Angie Gonzalez aka Angie Badass](https://github.com/AngieMGonzalez)
+Thank you E21
