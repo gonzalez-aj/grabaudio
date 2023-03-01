@@ -18,6 +18,7 @@ ___
 ## Relevant Links
 - [Check out the deployed site](https://songlue.netlify.app/)
 - [Figma Wireframes](https://www.figma.com/file/qlpuv1O0nBa1gsaRUMydaS/Songlue?node-id=0%3A1&t=dKNU5YLDvctIhoVa-1)
+- [Project Board](https://github.com/users/AngieMGonzalez/projects/1)
 
 - [ERD](https://dbdiagram.io/d/63ead9d4296d97641d80a8bd)
 <img width="400" alt="Songlue ERD made using dbDiagram" src="https://user-images.githubusercontent.com/114124374/222018077-3e8f43cb-0196-4a95-a518-1320d6a4d26c.png">
@@ -58,5 +59,5 @@ git@github.com:AngieMGonzalez/grabaudio.git
 ![Firebase Realtime Database and Firestore Cloud Storage](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)
 
 ## Contributors
-- [Angie Gonzalez aka Angie Badass](https://github.com/AngieMGonzalez)
+- [Angie Gonzalez](https://github.com/AngieMGonzalez)
 Thank you E21

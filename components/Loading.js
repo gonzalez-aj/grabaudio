@@ -6,7 +6,7 @@ export default function Loading() {
       <div
         className="spinner-border"
         style={{
-          color: '#00BF67',
+          color: '#ff9d5c',
           width: '100px',
           height: '100px',
         }}
