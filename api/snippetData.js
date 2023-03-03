@@ -70,10 +70,26 @@ const updateSnippet = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const faveSnippets = (uid) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/snippets.json?orderBy="uid"&equalTo="${uid}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const faveSnip = Object.values(data).filter((item) => item.favorite);
+      resolve(faveSnip);
+    })
+    .catch(reject);
+});
+
 export {
   getSnippets,
   getSingleSnippet,
   deleteSingleSnippet,
   updateSnippet,
   createSnippet,
+  faveSnippets,
 };
