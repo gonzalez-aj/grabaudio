@@ -94,8 +94,8 @@ function SnippetForm({ obj }) {
 
         <div className="">Snippet</div>
         {obj.firebaseKey ? '' : (
-          <FloatingLabel controlId="floatingInput0" label="Snippet URL" className="mb-3">
-            <Form.Control
+          <FloatingLabel controlId="floatingInput0" label="Snippet File" className="mb-3">
+            <input
               type="file"
               onInput={handleFileChange}
               required
