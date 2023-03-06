@@ -13,8 +13,8 @@ const initialState = {
   firebaseKey: '',
   title: '',
   description: '',
-  bpm: '40',
-  keyOf: 'C Major',
+  bpm: '',
+  keyOf: '',
   isPublic: false,
   favorite: false,
 };
@@ -26,7 +26,7 @@ function SnippetForm({ obj }) {
   const [audio, setAudio] = useState(null);
   const [audioUrl, setAudioUrl] = useState('');
   const didMount = React.useRef(false);
-  const [snippetBpm, setSnippetBpm] = useState(40);
+  const [snippetBpm, setSnippetBpm] = useState('40');
   const [snippetKeyOf, setSnippetKeyOf] = useState('C Major');
 
   useEffect(() => {
