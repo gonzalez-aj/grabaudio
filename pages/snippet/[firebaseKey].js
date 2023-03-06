@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { Button, Card, Image } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
+import Image from 'next/image';
 import Link from 'next/link';
 import songluetransparent from '../../images/songluetransparent.png';
 import { viewSnippetDetails } from '../../api/mergedData';
@@ -25,7 +26,10 @@ export default function ViewSnippet() {
       <Head>
         <title> View {snippetDetails.title} </title>
       </Head>
-
+      <br />
+      <h1>
+        Lil Snippet of Sound: {snippetDetails.title}
+      </h1>
       <Card style={{ width: '50rem', margin: '20px' }}>
         <Image variant="top" src={songluetransparent} alt={snippetDetails.title} />
         <Card.Body>
