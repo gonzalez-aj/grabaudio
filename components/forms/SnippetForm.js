@@ -25,7 +25,6 @@ function SnippetForm({ obj }) {
   const [audioUrl, setAudioUrl] = useState('');
   const didMount = React.useRef(false);
   const [snippetBpm, setSnippetBpm] = useState('40');
-  const [snippetKeyOf, setSnippetKeyOf] = useState('C Major');
   console.warn('formInput', formInput);
   useEffect(() => {
     if (obj.firebaseKey) setFormInput(obj);
@@ -59,13 +58,8 @@ function SnippetForm({ obj }) {
   };
 
   const changeBPM = (e) => {
-    console.warn('bpm', e);
+    console.warn('bpm', e.target.value);
     setSnippetBpm(e.target.value);
-  };
-
-  const changeKey = (e) => {
-    console.warn('keyOf', e.target.value);
-    setSnippetKeyOf(e.target.value);
   };
 
   const handleSubmit = (e) => {
@@ -75,7 +69,7 @@ function SnippetForm({ obj }) {
         .then(() => router.push(`/snippet/${obj.firebaseKey}`));
     } else {
       const payload = {
-        ...formInput, uid: user.uid, audio_url: `${audioUrl}`, bpm: snippetBpm, keyOf: snippetKeyOf,
+        ...formInput, uid: user.uid, audio_url: `${audioUrl}`, bpm: snippetBpm,
       };
       console.warn('payload', payload);
       createSnippet(payload).then(({ name }) => {
