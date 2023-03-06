@@ -13,8 +13,6 @@ const initialState = {
   firebaseKey: '',
   title: '',
   description: '',
-  bpm: '',
-  keyOf: '',
   isPublic: false,
   favorite: false,
 };
@@ -28,7 +26,7 @@ function SnippetForm({ obj }) {
   const didMount = React.useRef(false);
   const [snippetBpm, setSnippetBpm] = useState('40');
   const [snippetKeyOf, setSnippetKeyOf] = useState('C Major');
-
+  console.warn('formInput', formInput);
   useEffect(() => {
     if (obj.firebaseKey) setFormInput(obj);
   }, [obj, user]);
@@ -52,6 +50,7 @@ function SnippetForm({ obj }) {
   };
 
   const handleChange = (e) => {
+    console.warn('handleChange', e);
     const { name, value } = e.target;
     setFormInput((prevState) => ({
       ...prevState,
@@ -60,10 +59,12 @@ function SnippetForm({ obj }) {
   };
 
   const changeBPM = (e) => {
+    console.warn('bpm', e);
     setSnippetBpm(e.target.value);
   };
 
   const changeKey = (e) => {
+    console.warn('keyOf', e.target.value);
     setSnippetKeyOf(e.target.value);
   };
 
@@ -76,6 +77,7 @@ function SnippetForm({ obj }) {
       const payload = {
         ...formInput, uid: user.uid, audio_url: `${audioUrl}`, bpm: snippetBpm, keyOf: snippetKeyOf,
       };
+      console.warn('payload', payload);
       createSnippet(payload).then(({ name }) => {
         const patchPayloadFBK = { firebaseKey: name };
         updateSnippet(patchPayloadFBK).then(() => {
@@ -149,9 +151,9 @@ function SnippetForm({ obj }) {
             placeholder="Pick a Major Key"
             aria-label="Key"
             name="keyOf"
-            onChange={changeKey}
+            onChange={handleChange}
             className="mb-3"
-            value={snippetKeyOf}
+            value={formInput.keyOf}
             required
           >
             <option value="A Major">A Major</option>
