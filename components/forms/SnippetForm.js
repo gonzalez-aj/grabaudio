@@ -13,6 +13,8 @@ const initialState = {
   firebaseKey: '',
   title: '',
   description: '',
+  bpm: '40',
+  keyOf: 'C Major',
   isPublic: false,
   favorite: false,
 };
@@ -202,7 +204,7 @@ SnippetForm.propTypes = {
   obj: PropTypes.shape({
     title: PropTypes.string,
     description: PropTypes.string,
-    bpm: PropTypes.number,
+    bpm: PropTypes.string,
     keyOf: PropTypes.string,
     isPublic: PropTypes.bool,
     favorite: PropTypes.bool,
