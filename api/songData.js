@@ -21,7 +21,7 @@ const getSongs = (uid) => new Promise((resolve, reject) => {
 });
 
 const createSong = (payload) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/Songs.json`, {
+  fetch(`${dbUrl}/songs.json`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ const createSong = (payload) => new Promise((resolve, reject) => {
 });
 
 const getSingleSong = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/Songs/${firebaseKey}.json`, {
+  fetch(`${dbUrl}/songs/${firebaseKey}.json`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ const getSingleSong = (firebaseKey) => new Promise((resolve, reject) => {
 });
 
 const deleteSingleSong = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/Songs/${firebaseKey}.json`, {
+  fetch(`${dbUrl}/songs/${firebaseKey}.json`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ const deleteSingleSong = (firebaseKey) => new Promise((resolve, reject) => {
 });
 
 const updateSong = (payload) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/Songs/${payload.firebaseKey}.json`, {
+  fetch(`${dbUrl}/songs/${payload.firebaseKey}.json`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -83,7 +83,7 @@ const getSnippetsBySong = (firebaseKey) => new Promise((resolve, reject) => {
 });
 
 const getPublicSongs = () => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/Songs.json`, {
+  fetch(`${dbUrl}/songs.json`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
