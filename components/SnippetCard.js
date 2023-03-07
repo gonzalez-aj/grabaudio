@@ -10,7 +10,7 @@ import { useAuth } from '../utils/context/authContext';
 function SnippetCard({ snippetObj, onUpdate }) {
   const { user } = useAuth();
   const deleteSnippet = () => {
-    if (window.confirm(`You sure you wanna delte this lil snippets ${snippetObj.name}?`)) {
+    if (window.confirm(`Sure you wanna delete this lil snippet ${snippetObj.title}?`)) {
       deleteSingleSnippet(snippetObj.firebaseKey).then(() => onUpdate());
     }
   };
@@ -48,7 +48,7 @@ SnippetCard.propTypes = {
     audio_url: PropTypes.string,
     title: PropTypes.string,
     description: PropTypes.string,
-    bpm: PropTypes.string,
+    bpm: PropTypes.number,
     name: PropTypes.string,
     isPublic: PropTypes.bool,
     favorite: PropTypes.bool,
