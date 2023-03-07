@@ -24,7 +24,7 @@ function SnippetForm({ obj }) {
   const [audio, setAudio] = useState(null);
   const [audioUrl, setAudioUrl] = useState('');
   const didMount = React.useRef(false);
-  const [snippetBpm, setSnippetBpm] = useState('40');
+  const [snippetBpm, setSnippetBpm] = useState(40);
   console.warn('formInput', formInput);
   useEffect(() => {
     if (obj.firebaseKey) setFormInput(obj);
@@ -55,11 +55,6 @@ function SnippetForm({ obj }) {
       ...prevState,
       [name]: value,
     }));
-  };
-
-  const changeBPM = (e) => {
-    console.warn('bpm', e.target.value);
-    setSnippetBpm(e.target.value);
   };
 
   const handleSubmit = (e) => {
@@ -133,7 +128,12 @@ function SnippetForm({ obj }) {
             min={40}
             max={220}
             step={1}
-            onChange={changeBPM}
+            onChange={
+              (e) => {
+                console.warn('bpm', e.target.value);
+                setSnippetBpm(parseInt(e.target.value, 10));
+              }
+            }
             value={snippetBpm}
           />
           <output htmlFor="fader" />
@@ -200,7 +200,7 @@ SnippetForm.propTypes = {
   obj: PropTypes.shape({
     title: PropTypes.string,
     description: PropTypes.string,
-    bpm: PropTypes.string,
+    bpm: PropTypes.number,
     keyOf: PropTypes.string,
     isPublic: PropTypes.bool,
     favorite: PropTypes.bool,
