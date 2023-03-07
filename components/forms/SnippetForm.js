@@ -13,6 +13,7 @@ const initialState = {
   firebaseKey: '',
   title: '',
   description: '',
+  bpm: 40,
   isPublic: false,
   favorite: false,
 };
@@ -24,10 +25,10 @@ function SnippetForm({ obj }) {
   const [audio, setAudio] = useState(null);
   const [audioUrl, setAudioUrl] = useState('');
   const didMount = React.useRef(false);
-  const [snippetBpm, setSnippetBpm] = useState(40);
-  console.warn('formInput', formInput);
   useEffect(() => {
-    if (obj.firebaseKey) setFormInput(obj);
+    if (obj.firebaseKey) {
+      setFormInput(obj);
+    }
   }, [obj, user]);
   useEffect(() => {
     if (didMount.current) {
@@ -53,7 +54,7 @@ function SnippetForm({ obj }) {
     const { name, value } = e.target;
     setFormInput((prevState) => ({
       ...prevState,
-      [name]: value,
+      [name]: name === 'bpm' ? parseInt(value, 10) : value,
     }));
   };
 
@@ -64,7 +65,7 @@ function SnippetForm({ obj }) {
         .then(() => router.push(`/snippet/${obj.firebaseKey}`));
     } else {
       const payload = {
-        ...formInput, uid: user.uid, audio_url: `${audioUrl}`, bpm: snippetBpm,
+        ...formInput, uid: user.uid, audio_url: `${audioUrl}`,
       };
       console.warn('payload', payload);
       createSnippet(payload).then(({ name }) => {
@@ -121,20 +122,16 @@ function SnippetForm({ obj }) {
           />
         </FloatingLabel>
 
-        <div className="">{snippetBpm} BPM</div>
+        <div className="">{formInput.bpm} BPM</div>
         <FloatingLabel className="custom-slider m-4 mb-6" label="BPM">
           <input
             type="range"
             min={40}
             max={220}
             step={1}
-            onChange={
-              (e) => {
-                console.warn('bpm', e.target.value);
-                setSnippetBpm(parseInt(e.target.value, 10));
-              }
-            }
-            value={snippetBpm}
+            name="bpm"
+            onChange={handleChange}
+            value={parseInt(formInput.bpm, 10)}
           />
           <output htmlFor="fader" />
         </FloatingLabel>
