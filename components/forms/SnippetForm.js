@@ -8,6 +8,7 @@ import Head from 'next/head';
 import { useAuth } from '../../utils/context/authContext';
 import { createSnippet, updateSnippet } from '../../api/snippetData';
 import { storage } from '../../utils/client';
+import { getSongs } from '../../api/songData';
 
 const initialState = {
   firebaseKey: '',
@@ -25,7 +26,10 @@ function SnippetForm({ obj }) {
   const [audio, setAudio] = useState(null);
   const [audioUrl, setAudioUrl] = useState('');
   const didMount = React.useRef(false);
+  const [songs, setSongs] = useState([]);
+
   useEffect(() => {
+    getSongs(user.uid).then(setSongs);
     if (obj.firebaseKey) {
       setFormInput(obj);
     }
@@ -157,6 +161,29 @@ function SnippetForm({ obj }) {
           </Form.Select>
         </FloatingLabel>
 
+        <div className="">Select Song</div>
+        <FloatingLabel controlId="floatingSelect" label="Song">
+          <Form.Select
+            placeholder="Pick a Song"
+            aria-label="Song"
+            name="song_id"
+            onChange={handleChange}
+            className="mb-3"
+            value={formInput.song_id}
+            required
+          >
+            <option value="">Select a Song</option>
+            {songs.map((song) => (
+              <option
+                key={song.firebaseKey}
+                value={song.firebaseKey}
+              >
+                {song.name}
+              </option>
+            ))}
+          </Form.Select>
+        </FloatingLabel>
+
         <Form.Check
           className="mb-3"
           type="switch"
@@ -201,6 +228,7 @@ SnippetForm.propTypes = {
     keyOf: PropTypes.string,
     isPublic: PropTypes.bool,
     favorite: PropTypes.bool,
+    song_id: PropTypes.string,
     firebaseKey: PropTypes.string,
   }),
 };
