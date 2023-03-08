@@ -12,6 +12,7 @@ const initialState = {
   firebaseKey: '',
   title: '',
   description: '',
+  bpm: 40,
   isPublic: false,
   favorite: false,
 };
@@ -20,8 +21,6 @@ function SongForm({ obj }) {
   const [formInput, setFormInput] = useState(initialState);
   const router = useRouter();
   const { user } = useAuth();
-  const [songBpm, setSongBpm] = useState(40);
-  const [songKeyOf, setSongKeyOf] = useState('C Major');
 
   useEffect(() => {
     if (obj.firebaseKey) setFormInput(obj);
@@ -31,32 +30,23 @@ function SongForm({ obj }) {
     const { name, value } = e.target;
     setFormInput((prevState) => ({
       ...prevState,
-      [name]: value,
+      [name]: name === 'bpm' ? parseInt(value, 10) : value,
     }));
-  };
-
-  const changeBPM = (e) => {
-    setSongBpm(e.target.value);
-  };
-
-  const changeKey = (e) => {
-    setSongKeyOf(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
       updateSong(formInput)
-        .then(() => router.push(`/song/${obj.firebaseKey}`));
+        .then(() => router.push('/profile'));
     } else {
       const payload = {
-        ...formInput, uid: user.uid, bpm: songBpm, keyOf: songKeyOf,
+        ...formInput, uid: user.uid,
       };
       createSong(payload).then(({ name }) => {
         const patchPayloadFBK = { firebaseKey: name };
         updateSong(patchPayloadFBK).then(() => {
-          setFormInput(initialState);
-          router.push('/');
+          router.push('/profile');
         });
       });
     }
@@ -95,15 +85,15 @@ function SongForm({ obj }) {
           />
         </FloatingLabel>
 
-        <div className="">{songBpm} BPM</div>
+        <div className="">{formInput.bpm} BPM</div>
         <FloatingLabel className="m-4 mb-6" label="BPM">
           <input
             type="range"
             min={40}
             max={220}
             step={1}
-            onChange={changeBPM}
-            value={songBpm}
+            onChange={handleChange}
+            value={parseInt(formInput.bpm, 10)}
           />
           <output htmlFor="fader" />
         </FloatingLabel>
@@ -114,17 +104,22 @@ function SongForm({ obj }) {
             placeholder="Pick a Major Key"
             aria-label="Key"
             name="keyOf"
-            onChange={changeKey}
+            onChange={handleChange}
             className="mb-3"
-            value={songKeyOf}
+            value={formInput.keyOf}
             required
           >
+            <option value="Ab Major">Ab Major</option>
             <option value="A Major">A Major</option>
+            <option value="Bb Major">Bb Major</option>
             <option value="B Major">B Major</option>
             <option value="C Major">C Major</option>
+            <option value="Cb Major">C#/Db Major</option>
             <option value="D Major">D Major</option>
+            <option value="Eb Major">Eb Major</option>
             <option value="E Major">E Major</option>
             <option value="F Major">F Major</option>
+            <option value="Fb Major">F#/Gb Major</option>
             <option value="G Major">G Major</option>
           </Form.Select>
         </FloatingLabel>
