@@ -54,7 +54,6 @@ function SnippetForm({ obj }) {
   };
 
   const handleChange = (e) => {
-    console.warn('handleChange', e);
     const { name, value } = e.target;
     setFormInput((prevState) => ({
       ...prevState,
@@ -151,12 +150,17 @@ function SnippetForm({ obj }) {
             value={formInput.keyOf}
             required
           >
+            <option value="Ab Major">Ab Major</option>
             <option value="A Major">A Major</option>
+            <option value="Bb Major">Bb Major</option>
             <option value="B Major">B Major</option>
             <option value="C Major">C Major</option>
+            <option value="Cb Major">C#/Db Major</option>
             <option value="D Major">D Major</option>
+            <option value="Eb Major">Eb Major</option>
             <option value="E Major">E Major</option>
             <option value="F Major">F Major</option>
+            <option value="Fb Major">F#/Gb Major</option>
             <option value="G Major">G Major</option>
           </Form.Select>
         </FloatingLabel>
