@@ -92,6 +92,7 @@ function SongForm({ obj }) {
             min={40}
             max={220}
             step={1}
+            name="bpm"
             onChange={handleChange}
             value={parseInt(formInput.bpm, 10)}
           />
