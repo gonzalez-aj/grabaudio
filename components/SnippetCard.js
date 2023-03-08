@@ -52,6 +52,7 @@ SnippetCard.propTypes = {
     name: PropTypes.string,
     isPublic: PropTypes.bool,
     favorite: PropTypes.bool,
+    song_id: PropTypes.string,
     keyOf: PropTypes.string,
     firebaseKey: PropTypes.string,
     uid: PropTypes.string,

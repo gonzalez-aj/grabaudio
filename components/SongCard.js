@@ -40,11 +40,9 @@ function SongCard({ songObj, onUpdate }) {
 
 SongCard.propTypes = {
   songObj: PropTypes.shape({
-    audio_url: PropTypes.string,
     title: PropTypes.string,
     description: PropTypes.string,
     bpm: PropTypes.number,
-    name: PropTypes.string,
     isPublic: PropTypes.bool,
     favorite: PropTypes.bool,
     keyOf: PropTypes.string,

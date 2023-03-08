@@ -12,8 +12,10 @@ import { getSongs } from '../../api/songData';
 
 const initialState = {
   firebaseKey: '',
+  audio_url: '',
   title: '',
   description: '',
+  song_id: '',
   bpm: 40,
   isPublic: false,
   favorite: false,
@@ -49,8 +51,13 @@ function SnippetForm({ obj }) {
   }, [audio]);
 
   const handleFileChange = (e) => {
-    const selectedFile = e.target.files[0];
-    setAudio(selectedFile);
+    if (obj.firebaseKey) {
+      const thisFile = e.target.files[storage.ref(`audio/${audio.name}`).put(audio)];
+      setAudio(thisFile);
+    } else {
+      const selectedFile = e.target.files[0];
+      setAudio(selectedFile);
+    }
   };
 
   const handleChange = (e) => {
@@ -90,15 +97,14 @@ function SnippetForm({ obj }) {
         <div className="mt-5" />
 
         <div className="">Snippet</div>
-        {obj.firebaseKey ? '' : (
-          <FloatingLabel controlId="floatingInput0" label="Snippet File" className="mb-3">
-            <input
-              type="file"
-              onInput={handleFileChange}
-              required
-            />
-          </FloatingLabel>
-        )}
+        <FloatingLabel controlId="floatingInput0" label="Snippet File" className="mb-3">
+          <input
+            type="file"
+            onInput={handleFileChange}
+            name="audio_url"
+            required
+          />
+        </FloatingLabel>
 
         <div className="">Title</div>
         <FloatingLabel controlId="floatingInput1" label="Snippet Title" className="mb-3">
@@ -166,7 +172,7 @@ function SnippetForm({ obj }) {
         </FloatingLabel>
 
         <div className="">Select Song</div>
-        <FloatingLabel controlId="floatingSelect" label="Song">
+        <FloatingLabel controlId="floatingSelect2" label="Song">
           <Form.Select
             placeholder="Pick a Song"
             aria-label="Song"
@@ -182,7 +188,7 @@ function SnippetForm({ obj }) {
                 key={song.firebaseKey}
                 value={song.firebaseKey}
               >
-                {song.name}
+                {song.title}
               </option>
             ))}
           </Form.Select>
@@ -226,6 +232,7 @@ function SnippetForm({ obj }) {
 
 SnippetForm.propTypes = {
   obj: PropTypes.shape({
+    audio_url: PropTypes.string,
     title: PropTypes.string,
     description: PropTypes.string,
     bpm: PropTypes.number,
