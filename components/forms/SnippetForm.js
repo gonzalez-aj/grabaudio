@@ -52,6 +52,11 @@ function SnippetForm({ obj }) {
 
   const handleFileChange = (e) => {
     if (obj.firebaseKey) {
+      const { name, value } = e.target;
+      setFormInput((prevState) => ({
+        ...prevState,
+        [name]: name === 'bpm' ? parseInt(value, 10) : value,
+      }));
       const thisFile = e.target.files[storage.ref(`audio/${audio.name}`).put(audio)];
       setAudio(thisFile);
     } else {
