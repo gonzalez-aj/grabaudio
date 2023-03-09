@@ -16,6 +16,7 @@ const initialState = {
   title: '',
   description: '',
   song_id: '',
+  keyOf: 'C Major',
   bpm: 40,
   isPublic: false,
   favorite: false,
@@ -51,18 +52,8 @@ function SnippetForm({ obj }) {
   }, [audio]);
 
   const handleFileChange = (e) => {
-    if (obj.firebaseKey) {
-      const { name, value } = e.target;
-      setFormInput((prevState) => ({
-        ...prevState,
-        [name]: name === 'bpm' ? parseInt(value, 10) : value,
-      }));
-      const thisFile = e.target.files[storage.ref(`audio/${audio.name}`).put(audio)];
-      setAudio(thisFile);
-    } else {
-      const selectedFile = e.target.files[0];
-      setAudio(selectedFile);
-    }
+    const selectedFile = e.target.files[0];
+    setAudio(selectedFile);
   };
 
   const handleChange = (e) => {
@@ -102,14 +93,15 @@ function SnippetForm({ obj }) {
         <div className="mt-5" />
 
         <div className="">Snippet</div>
-        <FloatingLabel controlId="floatingInput0" label="Snippet File" className="mb-3">
-          <input
-            type="file"
-            onInput={handleFileChange}
-            name="audio_url"
-            required
-          />
-        </FloatingLabel>
+        {obj.firebaseKey ? '' : (
+          <FloatingLabel controlId="floatingInput0" label="Snippet File" className="mb-3">
+            <input
+              type="file"
+              onInput={handleFileChange}
+              required
+            />
+          </FloatingLabel>
+        )}
 
         <div className="">Title</div>
         <FloatingLabel controlId="floatingInput1" label="Snippet Title" className="mb-3">

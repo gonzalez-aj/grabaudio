@@ -14,7 +14,8 @@ function SnippetCard({ snippetObj, onUpdate }) {
       deleteSingleSnippet(snippetObj.firebaseKey).then(() => onUpdate());
     }
   };
-
+  console.warn('this is the url for the audio SnippetCard', snippetObj.audio_url);
+  console.warn('SnippetCard snippetObj', snippetObj);
   return (
     <>
       <Card style={{ width: '20rem', margin: '10px' }}>

@@ -11,7 +11,7 @@ const viewSongDetails = (firebaseKey) => new Promise((resolve, reject) => {
 const viewSnippetDetails = (firebaseKey) => new Promise((resolve, reject) => {
   getSingleSnippet(firebaseKey).then((snippet) => {
     getSingleSong(snippet.song_id)
-      .then((snippetData) => resolve({ ...snippet, snippetData }));
+      .then((songData) => resolve({ ...snippet, songData }));
   }).catch(reject);
 });
 

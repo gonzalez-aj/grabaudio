@@ -14,34 +14,40 @@ export default function ViewSnippet() {
   const [snippetDetails, setSnippetDetails] = useState({});
   const router = useRouter();
   const { user } = useAuth();
-
   const { firebaseKey } = router.query;
+  const [audio, setAudio] = useState(null);
 
   useEffect(() => {
-    viewSnippetDetails(firebaseKey).then(setSnippetDetails);
+    viewSnippetDetails(firebaseKey)?.then(setSnippetDetails);
+    // getSingleSnippet(firebaseKey).then(setSnippetDetails);
+    setAudio(new Audio(snippetDetails.audio_url));
   }, [firebaseKey]);
 
+  console.warn('this is the url for the audio ViewSnippet', snippetDetails?.audio_url);
+  console.warn('snippetDetails', snippetDetails);
   return (
     <>
       <Head>
-        <title> View {snippetDetails.title} </title>
+        <title> View {snippetDetails?.title} </title>
       </Head>
       <br />
       <h1>
-        Lil Snippet of Sound: {snippetDetails.title}
+        Lil Snippet of Sound: {snippetDetails?.title}
       </h1>
+      <h3>A piece of Song: {snippetDetails?.songData?.title}</h3>
       <Card style={{ width: '50rem', margin: '20px' }}>
-        <Image variant="top" src={songluetransparent} alt={snippetDetails.title} />
+        <Image variant="top" src={songluetransparent} alt={snippetDetails?.title} />
         <Card.Body>
-          <Card.Title>{snippetDetails.title}</Card.Title>
+          <Card.Title>{snippetDetails?.title}</Card.Title>
 
           <audio controls>
-            <source src={snippetDetails.audio_url} />
+            <source src={audio} type="audio/m4a" />
             <track kind="captions" />
           </audio>
-          <h6>Description:</h6> <p>{snippetDetails.description}</p>
-          <h6>Key:</h6> <p>{snippetDetails.keyOf}</p>
-          <h6>BPM:</h6> <p>{snippetDetails.bpm}</p>
+
+          <h6>Description:</h6> <p>{snippetDetails?.description}</p>
+          <h6>Key:</h6> <p>{snippetDetails?.keyOf}</p>
+          <h6>BPM:</h6> <p>{snippetDetails?.bpm}</p>
           <p>
             {snippetDetails.isPublic ? 'Shared Sound 👥' : 'Private 🔒'}
           </p>
