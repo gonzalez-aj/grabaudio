@@ -71,7 +71,7 @@ const updateSong = (payload) => new Promise((resolve, reject) => {
 });
 
 const getSnippetsBySong = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/Snippets.json?orderBy="Song_id"&equalTo="${firebaseKey}"`, {
+  fetch(`${dbUrl}/snippets.json?orderBy="song_id"&equalTo="${firebaseKey}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

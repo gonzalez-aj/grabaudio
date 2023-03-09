@@ -12,7 +12,7 @@ export default function UserProfile() {
       <Image src={user.photoURL} alt="userURL" width="200px" height="200px" id="profilepicture" />
       <h2>{user.displayName}</h2>
       <h5>{user.email}</h5>
-      <h5>Last Time On Songlue: {user.metadata.lastSignInTime}</h5>
+      <h5>Last Time On SonGlue: {user.metadata.lastSignInTime}</h5>
       <Button type="button" size="lg" cvariant="outline-dark" className="m-2" onClick={signOut}>
         Sign Out
       </Button>

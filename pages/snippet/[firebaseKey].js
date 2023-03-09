@@ -15,12 +15,10 @@ export default function ViewSnippet() {
   const router = useRouter();
   const { user } = useAuth();
   const { firebaseKey } = router.query;
-  const [audio, setAudio] = useState(null);
 
   useEffect(() => {
     viewSnippetDetails(firebaseKey)?.then(setSnippetDetails);
     // getSingleSnippet(firebaseKey).then(setSnippetDetails);
-    setAudio(new Audio(snippetDetails.audio_url));
   }, [firebaseKey]);
 
   console.warn('this is the url for the audio ViewSnippet', snippetDetails?.audio_url);
@@ -41,7 +39,7 @@ export default function ViewSnippet() {
           <Card.Title>{snippetDetails?.title}</Card.Title>
 
           <audio controls>
-            <source src={audio} type="audio/m4a" />
+            <source src={snippetDetails?.audio_url} />
             <track kind="captions" />
           </audio>
 

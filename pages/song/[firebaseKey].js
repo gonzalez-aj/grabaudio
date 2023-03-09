@@ -6,9 +6,8 @@ import { Button, Card } from 'react-bootstrap';
 import Image from 'next/image';
 import Link from 'next/link';
 import songluetransparent from '../../images/songluetransparent.png';
-import { viewSongDetails } from '../../api/mergedData';
+import { deleteSongSnippets, viewSongDetails } from '../../api/mergedData';
 import { useAuth } from '../../utils/context/authContext';
-import { deleteSingleSong } from '../../api/songData';
 import ViewYourSnippets from '../../components/ViewSnippets';
 
 export default function ViewSong() {
@@ -20,7 +19,7 @@ export default function ViewSong() {
   useEffect(() => {
     viewSongDetails(firebaseKey).then(setSongDetails);
   }, [firebaseKey]);
-
+  console.warn('song songDetails', songDetails);
   return (
     <>
       <Head>
@@ -49,7 +48,7 @@ export default function ViewSong() {
             {songDetails.uid === user.uid ? (<Button variant="outline-dark" className="m-2">edit</Button>) : '' }
           </Link>
 
-          {songDetails.uid === user.uid ? (<Button variant="outline-dark" className="m-2" onClick={deleteSingleSong}>delete</Button>) : ''}
+          {songDetails.uid === user.uid ? (<Button variant="outline-dark" className="m-2" onClick={deleteSongSnippets}>delete</Button>) : ''}
         </Card.Body>
       </Card>
       <ViewYourSnippets />
