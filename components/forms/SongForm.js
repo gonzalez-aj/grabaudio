@@ -13,6 +13,7 @@ const initialState = {
   title: '',
   description: '',
   bpm: 40,
+  keyOf: '',
   isPublic: false,
   favorite: false,
 };

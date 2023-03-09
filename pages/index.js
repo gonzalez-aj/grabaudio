@@ -16,14 +16,16 @@ function Home() {
   }, []);
 
   return (
-    <div className="text-center my-4">
-      <div className="d-flex flex-wrap">
-        {snippets.map((snippet) => (
-          <SnippetCard key={snippet.firebaseKey} snippetObj={snippet} onUpdate={getAllTheSnippets} />
-        ))}
+    <>
+      <h1> Welcome to SonGlue</h1>
+      <div className="text-center my-4">
+        <div className="d-flex flex-wrap">
+          {snippets.map((snippet) => (
+            <SnippetCard key={snippet.firebaseKey} snippetObj={snippet} onUpdate={getAllTheSnippets} />
+          ))}
+        </div>
       </div>
-
-    </div>
+    </>
   );
 }
 

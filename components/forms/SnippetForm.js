@@ -12,8 +12,11 @@ import { getSongs } from '../../api/songData';
 
 const initialState = {
   firebaseKey: '',
+  audio_url: '',
   title: '',
   description: '',
+  song_id: '',
+  keyOf: 'C Major',
   bpm: 40,
   isPublic: false,
   favorite: false,
@@ -166,7 +169,7 @@ function SnippetForm({ obj }) {
         </FloatingLabel>
 
         <div className="">Select Song</div>
-        <FloatingLabel controlId="floatingSelect" label="Song">
+        <FloatingLabel controlId="floatingSelect2" label="Song">
           <Form.Select
             placeholder="Pick a Song"
             aria-label="Song"
@@ -182,7 +185,7 @@ function SnippetForm({ obj }) {
                 key={song.firebaseKey}
                 value={song.firebaseKey}
               >
-                {song.name}
+                {song.title}
               </option>
             ))}
           </Form.Select>
@@ -226,6 +229,7 @@ function SnippetForm({ obj }) {
 
 SnippetForm.propTypes = {
   obj: PropTypes.shape({
+    audio_url: PropTypes.string,
     title: PropTypes.string,
     description: PropTypes.string,
     bpm: PropTypes.number,

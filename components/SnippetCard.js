@@ -14,7 +14,8 @@ function SnippetCard({ snippetObj, onUpdate }) {
       deleteSingleSnippet(snippetObj.firebaseKey).then(() => onUpdate());
     }
   };
-
+  console.warn('this is the url for the audio SnippetCard', snippetObj.audio_url);
+  console.warn('SnippetCard snippetObj', snippetObj);
   return (
     <>
       <Card style={{ width: '20rem', margin: '10px' }}>
@@ -52,6 +53,7 @@ SnippetCard.propTypes = {
     name: PropTypes.string,
     isPublic: PropTypes.bool,
     favorite: PropTypes.bool,
+    song_id: PropTypes.string,
     keyOf: PropTypes.string,
     firebaseKey: PropTypes.string,
     uid: PropTypes.string,
