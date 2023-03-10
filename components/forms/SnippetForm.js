@@ -73,7 +73,6 @@ function SnippetForm({ obj }) {
       const payload = {
         ...formInput, uid: user.uid, audio_url: `${audioUrl}`,
       };
-      console.warn('payload', payload);
       createSnippet(payload).then(({ name }) => {
         const patchPayloadFBK = { firebaseKey: name };
         updateSnippet(patchPayloadFBK).then(() => {

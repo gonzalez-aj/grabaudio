@@ -29,7 +29,7 @@ export default function NavBar() {
               <NavDropdown.Item href="/snippet/new">Create Snippet</NavDropdown.Item>
               <NavDropdown.Item href="/song/new">Create Song</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="/song/favorite">Fave Songs</Nav.Link>
+            <Nav.Link href="/song/favesong">Fave Songs</Nav.Link>
           </Nav>
           <SearchBar className="d-flex" />
           <Nav.Link href="/profile">
