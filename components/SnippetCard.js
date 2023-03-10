@@ -10,7 +10,7 @@ import { useAuth } from '../utils/context/authContext';
 function SnippetCard({ snippetObj, onUpdate }) {
   const { user } = useAuth();
   const deleteSnippet = () => {
-    if (window.confirm(`Sure you wanna delete this lil snippet ${snippetObj.title}?`)) {
+    if (window.confirm(`You wanna delete this lil snippet ${snippetObj.title}?`)) {
       deleteSingleSnippet(snippetObj.firebaseKey).then(() => onUpdate());
     }
   };

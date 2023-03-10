@@ -1,11 +1,11 @@
 import { deleteSingleSong, getSnippetsBySong, getSingleSong } from './songData';
 import { deleteSingleSnippet, getSingleSnippet } from './snippetData';
 
-const viewSongDetails = (firebaseKey) => new Promise((resolve, reject) => {
-  getSingleSong(firebaseKey).then((song) => {
-    getSnippetsBySong(song.firebaseKey)
-      .then((songSnippets) => resolve({ ...song, songSnippets }));
-  }).catch(reject);
+const viewSongDetails = (songFirebaseKey) => new Promise((resolve, reject) => {
+  Promise.all([getSingleSong(songFirebaseKey), getSnippetsBySong(songFirebaseKey)])
+    .then(([songObject, songSnippetsArray]) => {
+      resolve({ ...songObject, snippets: songSnippetsArray });
+    }).catch((error) => reject(error));
 });
 
 const viewSnippetDetails = (firebaseKey) => new Promise((resolve, reject) => {
