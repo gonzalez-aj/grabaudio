@@ -19,7 +19,7 @@ export default function ProfilePage() {
   return (
     <>
       <div><UserProfile /></div>
-      <div className="d-flex flex-wrap" id="profilesnips">
+      <div className="d-flex flex-wrap" id="profilesongs">
         {songs.map((song) => (
           <SongCard key={song.firebaseKey} songObj={song} onUpdate={getAllTheSongs} />
         ))}
