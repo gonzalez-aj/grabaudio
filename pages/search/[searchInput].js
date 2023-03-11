@@ -10,6 +10,7 @@ export default function SearchResult() {
   const { user } = useAuth();
   const router = useRouter();
   const { searchInput } = router.query;
+  const [noMatch, setNoMatch] = useState(false);
 
   const getSearchResults = () => {
     getSnippets(user.uid).then((searchResultsArray) => {
@@ -20,6 +21,9 @@ export default function SearchResult() {
       || snippets.bpm.toString().includes(searchInput),
       );
       setSearchResults(filterResults);
+      setNoMatch(filterResults.length === 0);
+    }).catch(() => {
+      setNoMatch(true);
     });
   };
 
@@ -29,13 +33,17 @@ export default function SearchResult() {
       setSearchResults([]);
     };
   }, [searchInput]);
+
   return (
-    <div>
+    <>
+      <br />
+      <h3>Search Results:</h3>
       <div className="d-flex flex-wrap">
+        {noMatch && searchResults.length === 0 && <h4>No match found for {searchInput}</h4>}
         {searchResults.map((obj) => (
           <SnippetCard key={obj.firebaseKey} snippetObj={obj} onUpdate={getSearchResults} />
         ))}
       </div>
-    </div>
+    </>
   );
 }

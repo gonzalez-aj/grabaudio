@@ -15,6 +15,7 @@ export default function SearchBar() {
     if (searchInput !== '') router.push(`/search/${searchInput}`);
     setSearchInput('');
   };
+
   return (
     <div>
       <Form onSubmit={handleSubmit}>

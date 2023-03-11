@@ -8,6 +8,7 @@ function Home() {
   const [snippets, setSnippets] = useState([]);
   const { user } = useAuth();
   const [noSongs, setNoSongs] = useState(false);
+
   const getAllTheSnippets = () => {
     getSnippets(user.uid)
       .then((data) => {
@@ -32,8 +33,8 @@ function Home() {
     <>
       <br />
       <h2> Welcome to SonGlue, {user.displayName} </h2>
-      {noSongs && <h4>There are no snippets here, yet!</h4>}
       <h3>These are all your lil audio snippets:</h3>
+      {noSongs && <h4>There are no snippets here, yet!</h4>}
       <div className="text-center my-4">
         <div className="d-flex flex-wrap">
           {snippets.map((snippet) => (
