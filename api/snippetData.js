@@ -1,5 +1,4 @@
-import { ref, deleteObject } from 'firebase/storage';
-import { clientCredentials, storage } from '../utils/client';
+import { clientCredentials } from '../utils/client';
 
 const dbUrl = clientCredentials.databaseURL;
 
@@ -46,7 +45,7 @@ const getSingleSnippet = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const deleteSingleSnippet = (firebaseKey, audio) => new Promise((resolve, reject) => {
+const deleteSingleSnippet = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${dbUrl}/snippets/${firebaseKey}.json`, {
     method: 'DELETE',
     headers: {
@@ -55,7 +54,6 @@ const deleteSingleSnippet = (firebaseKey, audio) => new Promise((resolve, reject
   })
     .then((response) => response.json())
     .then((data) => resolve(data))
-    .then(deleteObject(ref(storage, `audio/${audio.name}`)))
     .catch(reject);
 });
 
