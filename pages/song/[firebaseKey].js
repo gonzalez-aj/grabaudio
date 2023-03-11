@@ -8,7 +8,7 @@ import Link from 'next/link';
 import songluetransparent from '../../images/songluetransparent.png';
 import { deleteSongSnippets, viewSongDetails } from '../../api/mergedData';
 import { useAuth } from '../../utils/context/authContext';
-import ViewYourSnippets from '../../components/ViewSnippets';
+import SnippetCard from '../../components/SnippetCard';
 
 export default function ViewSong() {
   const [songDetails, setSongDetails] = useState({});
@@ -16,9 +16,16 @@ export default function ViewSong() {
   const { user } = useAuth();
   const { firebaseKey } = router.query;
 
+  const forOnUpdateOfSongs = () => {
+    // eslint-disable-next-line no-use-before-define
+    viewSongDetails(firebaseKey).then(setSongDetails);
+  };
+
   useEffect(() => {
     viewSongDetails(firebaseKey).then(setSongDetails);
   }, [firebaseKey]);
+
+  console.warn('router object', router);
   console.warn('song songDetails', songDetails);
   return (
     <>
@@ -51,7 +58,13 @@ export default function ViewSong() {
           {songDetails.uid === user.uid ? (<Button variant="outline-dark" className="m-2" onClick={deleteSongSnippets}>delete</Button>) : ''}
         </Card.Body>
       </Card>
-      <ViewYourSnippets />
+      <hr />
+      <h3>These are the snippets from song: {songDetails.title} </h3>
+      <div className="d-flex flex-column">
+        {songDetails.snippets?.map((snippetObject) => (
+          <SnippetCard key={snippetObject.firebaseKey} snippetObj={snippetObject} onUpdate={forOnUpdateOfSongs} />
+        ))}
+      </div>
     </>
   );
 }

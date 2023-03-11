@@ -7,8 +7,21 @@ import { useAuth } from '../utils/context/authContext';
 function Home() {
   const [snippets, setSnippets] = useState([]);
   const { user } = useAuth();
+  const [noSongs, setNoSongs] = useState(false);
   const getAllTheSnippets = () => {
-    getSnippets(user.uid).then(setSnippets);
+    getSnippets(user.uid)
+      .then((data) => {
+        if (data && data.length > 0) {
+          setNoSongs(false);
+          setSnippets(data);
+        } else {
+          setNoSongs(true);
+          setSnippets([]);
+        }
+      })
+      .catch(() => {
+        setSnippets(true);
+      });
   };
 
   useEffect(() => {
@@ -18,6 +31,7 @@ function Home() {
   return (
     <>
       <h1> Welcome to SonGlue</h1>
+      {noSongs && <h4>There are no snippets here, yet!</h4>}
       <div className="text-center my-4">
         <div className="d-flex flex-wrap">
           {snippets.map((snippet) => (

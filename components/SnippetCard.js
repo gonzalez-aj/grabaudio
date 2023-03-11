@@ -14,25 +14,25 @@ function SnippetCard({ snippetObj, onUpdate }) {
       deleteSingleSnippet(snippetObj.firebaseKey).then(() => onUpdate());
     }
   };
-  console.warn('this is the url for the audio SnippetCard', snippetObj.audio_url);
+
   console.warn('SnippetCard snippetObj', snippetObj);
   return (
     <>
       <Card style={{ width: '20rem', margin: '10px' }}>
-        <Image variant="top" src={songluetransparent} alt={snippetObj.title} />
+        <Image variant="top" src={songluetransparent} alt={snippetObj?.title} />
         <Card.Body>
-          <Card.Title>{snippetObj.title}</Card.Title>
+          <Card.Title>{snippetObj?.title}</Card.Title>
 
           <audio controls>
-            <source src={snippetObj.audio_url} />
+            <source src={snippetObj?.audio_url} />
             <track kind="captions" />
           </audio>
 
-          <p className="card-text bold"> Description: {snippetObj.description} <br /> Key: {snippetObj.keyOf} <br /> BPM: {snippetObj.bpm} </p>
-          <Link href={`/snippet/${snippetObj.firebaseKey}`} passHref>
+          <p className="card-text bold"> Description: {snippetObj?.description} <br /> Key: {snippetObj?.keyOf} <br /> BPM: {snippetObj.bpm} </p>
+          <Link href={`/snippet/${snippetObj?.firebaseKey}`} passHref>
             <Button variant="outline-dark" className="m-2">view</Button>
           </Link>
-          <Link href={`/snippet/edit/${snippetObj.firebaseKey}`} passHref>
+          <Link href={`/snippet/edit/${snippetObj?.firebaseKey}`} passHref>
             {snippetObj.uid === user.uid ? (<Button variant="outline-dark" className="m-2">edit</Button>) : '' }
           </Link>
 
