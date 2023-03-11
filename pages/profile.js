@@ -8,9 +8,22 @@ import { useAuth } from '../utils/context/authContext';
 export default function ProfilePage() {
   const [songs, setSongs] = useState([]);
   const { user } = useAuth();
+  const [noSnips, setNoSnips] = useState(false);
 
   const getAllTheSongs = () => {
-    getSongs(user.uid).then(setSongs);
+    getSongs(user.uid)
+      .then((data) => {
+        if (data && data.length > 0) {
+          setNoSnips(false);
+          setSongs(data);
+        } else {
+          setNoSnips(true);
+          setSongs([]);
+        }
+      })
+      .catch(() => {
+        setNoSnips(true);
+      });
   };
 
   useEffect(() => {
@@ -19,6 +32,7 @@ export default function ProfilePage() {
   return (
     <>
       <div><UserProfile /></div>
+      {noSnips && <h4>There are no lil Snippets here, yet!</h4>}
       <div className="d-flex flex-wrap" id="profilesongs">
         {songs.map((song) => (
           <SongCard key={song.firebaseKey} songObj={song} onUpdate={getAllTheSongs} />
