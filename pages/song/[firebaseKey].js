@@ -6,7 +6,7 @@ import { Button, Card } from 'react-bootstrap';
 import Image from 'next/image';
 import Link from 'next/link';
 import songluetransparent from '../../images/songluetransparent.png';
-import { deleteSongSnippets, viewSongDetails } from '../../api/mergedData';
+import { viewSongDetails } from '../../api/mergedData';
 import { useAuth } from '../../utils/context/authContext';
 import SnippetCard from '../../components/SnippetCard';
 
@@ -17,7 +17,6 @@ export default function ViewSong() {
   const { firebaseKey } = router.query;
 
   const forOnUpdateOfSongs = () => {
-    // eslint-disable-next-line no-use-before-define
     viewSongDetails(firebaseKey).then(setSongDetails);
   };
 
@@ -55,7 +54,6 @@ export default function ViewSong() {
             {songDetails.uid === user.uid ? (<Button variant="outline-dark" className="m-2">edit</Button>) : '' }
           </Link>
 
-          {songDetails.uid === user.uid ? (<Button variant="outline-dark" className="m-2" onClick={deleteSongSnippets}>delete</Button>) : ''}
         </Card.Body>
       </Card>
       <hr />
