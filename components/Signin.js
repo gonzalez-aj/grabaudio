@@ -12,7 +12,7 @@ function Signin() {
         margin: '0 auto',
       }}
     >
-      <h1>Songlue</h1>
+      <h1>SonGlue</h1>
       <p>login below</p>
       <button type="button" className="btn btn-primary btn-lg copy-btn" onClick={signIn}>
         Sign In
