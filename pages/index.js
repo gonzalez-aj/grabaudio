@@ -30,8 +30,10 @@ function Home() {
 
   return (
     <>
-      <h1> Welcome to SonGlue</h1>
+      <br />
+      <h2> Welcome to SonGlue, {user.displayName} </h2>
       {noSongs && <h4>There are no snippets here, yet!</h4>}
+      <h3>These are all your lil audio snippets:</h3>
       <div className="text-center my-4">
         <div className="d-flex flex-wrap">
           {snippets.map((snippet) => (

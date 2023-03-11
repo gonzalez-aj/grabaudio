@@ -15,12 +15,11 @@ export default function ViewSnippet() {
   const router = useRouter();
   const { user } = useAuth();
   const { firebaseKey } = router.query;
+  const audioRef = useRef(null);
 
   useEffect(() => {
     viewSnippetDetails(firebaseKey)?.then(setSnippetDetails);
   }, [firebaseKey]);
-
-  const audioRef = useRef(null);
 
   return (
     <>

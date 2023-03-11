@@ -32,7 +32,8 @@ export default function ProfilePage() {
   return (
     <>
       <div><UserProfile /></div>
-      {noSnips && <h4>There are no lil Snippets here, yet!</h4>}
+      {noSnips && <h4>There are no Songs here, yet!</h4>}
+      <h3>These are all of your songs:</h3>
       <div className="d-flex flex-wrap" id="profilesongs">
         {songs.map((song) => (
           <SongCard key={song.firebaseKey} songObj={song} onUpdate={getAllTheSongs} />
