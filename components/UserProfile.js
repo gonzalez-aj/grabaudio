@@ -6,16 +6,23 @@ import { signOut } from '../utils/auth';
 
 export default function UserProfile() {
   const { user } = useAuth();
+  const CSTLastSignInTime = new Date(user.metadata.lastSignInTime).getTime() + 60 * 1000;
+  const CSTString = new Date(CSTLastSignInTime).toLocaleString();
 
   return (
-    <div id="profileSection">
-      <Image src={user.photoURL} alt="userURL" width="200px" height="200px" id="profilepicture" />
-      <h2>{user.displayName}</h2>
-      <h5>{user.email}</h5>
-      <h5>Last Time On SonGlue: {user.metadata.lastSignInTime}</h5>
-      <Button type="button" size="lg" cvariant="outline-dark" className="m-2" onClick={signOut}>
-        Sign Out
-      </Button>
-    </div>
+    <>
+      <div id="profileSection">
+        <br />
+        <h2>Profile:</h2>
+        <h3>{user.displayName}</h3>
+        <Image src={user.photoURL} alt="userURL" width="150px" height="150px" id="profilepicture" />
+        <h5>Email: {user.email}</h5>
+        <h5>Last Time On SonGlue: {CSTString} (CT)</h5>
+        <Button type="button" size="lg" cvariant="outline-dark" className="m-2" onClick={signOut}>
+          Sign Out
+        </Button>
+      </div>
+      <br />
+    </>
   );
 }
