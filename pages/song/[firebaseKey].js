@@ -57,7 +57,7 @@ export default function ViewSong() {
       <hr />
       <h3>These are the snippets from song: {songDetails.title} </h3>
       <div className="d-flex flex-column">
-        {songDetails.snippets?.map((snippetObject) => (
+        {songDetails.snippets?.filter((snippetObject) => snippetObject.isPublic).map((snippetObject) => (
           <SnippetCard key={snippetObject.firebaseKey} snippetObj={snippetObject} onUpdate={forOnUpdateOfSongs} />
         ))}
       </div>
