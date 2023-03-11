@@ -15,7 +15,6 @@ function SnippetCard({ snippetObj, onUpdate }) {
     }
   };
 
-  console.warn('SnippetCard snippetObj', snippetObj);
   return (
     <>
       <Card style={{ width: '20rem', margin: '10px' }}>

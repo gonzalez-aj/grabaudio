@@ -24,8 +24,6 @@ export default function ViewSong() {
     viewSongDetails(firebaseKey).then(setSongDetails);
   }, [firebaseKey]);
 
-  console.warn('router object', router);
-  console.warn('song songDetails', songDetails);
   return (
     <>
       <Head>

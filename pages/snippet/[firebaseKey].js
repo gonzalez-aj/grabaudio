@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { Button, Card } from 'react-bootstrap';
@@ -18,11 +18,10 @@ export default function ViewSnippet() {
 
   useEffect(() => {
     viewSnippetDetails(firebaseKey)?.then(setSnippetDetails);
-    // getSingleSnippet(firebaseKey).then(setSnippetDetails);
   }, [firebaseKey]);
 
-  console.warn('this is the url for the audio ViewSnippet', snippetDetails?.audio_url);
-  console.warn('snippetDetails', snippetDetails);
+  const audioRef = useRef(null);
+
   return (
     <>
       <Head>
@@ -38,8 +37,7 @@ export default function ViewSnippet() {
         <Card.Body>
           <Card.Title>{snippetDetails?.title}</Card.Title>
 
-          <audio controls>
-            <source src={snippetDetails?.audio_url} />
+          <audio controls ref={audioRef} src={snippetDetails.audio_url}>
             <track kind="captions" />
           </audio>
 
