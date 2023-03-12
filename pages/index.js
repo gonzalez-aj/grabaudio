@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import { getSnippets } from '../api/snippetData';
 import SnippetCard from '../components/SnippetCard';
@@ -31,6 +32,7 @@ function Home() {
 
   return (
     <>
+      <Head><title>SonGlue</title></Head>
       <br />
       <h2> Welcome to SonGlue, {user.displayName} </h2>
       <h3>These are all your lil audio snippets:</h3>

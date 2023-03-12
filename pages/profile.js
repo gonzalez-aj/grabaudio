@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { getSongs } from '../api/songData';
 import SongCard from '../components/SongCard';
@@ -31,6 +32,7 @@ export default function ProfilePage() {
   }, []);
   return (
     <>
+      <Head><title>Your Profile</title></Head>
       <div><UserProfile /></div>
       <h3>These are all of your songs:</h3>
       {noSnips && <h4>There are no Songs here, yet!</h4>}
