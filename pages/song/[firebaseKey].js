@@ -24,6 +24,48 @@ export default function ViewSong() {
     viewSongDetails(firebaseKey).then(setSongDetails);
   }, [firebaseKey]);
 
+  if (user.uid === songDetails.uid) {
+    return (
+      <>
+        <Head>
+          <title> View {songDetails.title} </title>
+        </Head>
+        <br />
+        <h1>
+          Song: {songDetails.title}
+        </h1>
+        <Card style={{ width: '50rem', margin: '20px' }}>
+          <Image variant="top" src={songluetransparent} alt={songDetails.title} />
+          <Card.Body>
+            <Card.Title>{songDetails.title}</Card.Title>
+
+            <h6>Description:</h6> <p>{songDetails.description}</p>
+            <h6>Key:</h6> <p>{songDetails.keyOf}</p>
+            <h6>BPM:</h6> <p>{songDetails.bpm}</p>
+            <p>
+              {songDetails.isPublic ? 'Shared Sound 👥' : 'Private 🔒'}
+            </p>
+            <p>
+              {songDetails.favorite ? 'Favorite ⭐️⭐️⭐️⭐️' : 'Favorite? Nah'}
+            </p>
+
+            <Link href={`/song/edit/${songDetails.firebaseKey}`} passHref>
+              {songDetails.uid === user.uid ? (<Button variant="outline-dark" className="m-2">edit</Button>) : '' }
+            </Link>
+
+          </Card.Body>
+        </Card>
+        <hr />
+        <h3>These are the snippets from song: {songDetails.title} </h3>
+
+        <div className="d-flex flex-column">
+          {songDetails.snippets?.map((snippetObject) => (
+            <SnippetCard key={snippetObject.firebaseKey} snippetObj={snippetObject} onUpdate={forOnUpdateOfSongs} />
+          ))}
+        </div>
+      </>
+    );
+  }
   return (
     <>
       <Head>
@@ -51,11 +93,11 @@ export default function ViewSong() {
           <Link href={`/song/edit/${songDetails.firebaseKey}`} passHref>
             {songDetails.uid === user.uid ? (<Button variant="outline-dark" className="m-2">edit</Button>) : '' }
           </Link>
-
         </Card.Body>
       </Card>
       <hr />
       <h3>These are the snippets from song: {songDetails.title} </h3>
+
       <div className="d-flex flex-column">
         {songDetails.snippets?.filter((snippetObject) => snippetObject.isPublic).map((snippetObject) => (
           <SnippetCard key={snippetObject.firebaseKey} snippetObj={snippetObject} onUpdate={forOnUpdateOfSongs} />
