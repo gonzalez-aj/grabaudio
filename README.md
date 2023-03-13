@@ -3,9 +3,16 @@
 [View the SonGlue app Here](https://songlue.netlify.app/)
 
 ## Topics
-- [Get Started](#get-started)
 - [Overview](#overview)
-- [Features](#features)
+- [MVP Features](#mvp-features)
+- [Video Walkthrough of SonGlue MVP](#video-walkthrough-of-songlue-mvp)
+- [Relevant Links](#relevant-links)
+- [Code Snippet](#code-snippet)
+- [Project Screenshots](#project-screenshots)
+- [Get Started](#get-started)
+- [Tech and Frameworks Used](#tech-and-frameworks-used)
+- [API Reference](#api-reference)
+- [Contributors](#contributors)
 ___
 ## Overview
 - The ideal user for Songlue is a musician/songwriter/composer trying to organize their songs/composition ideas
@@ -21,7 +28,7 @@ ___
 - Users can searches their Snippets
 - Users can filter out and quickly view their favortie of their own Snippets
 
-## Video Walkthrough of Songlue
+## Video Walkthrough of SonGlue MVP
 
 ## Relevant Links
 - [Check out the deployed site](https://songlue.netlify.app/)
@@ -56,16 +63,21 @@ git@github.com:AngieMGonzalez/grabaudio.git
 1. To start Songlue, run `npm run dev`
 1. Open [http://localhost:3000](http://localhost:3000) with your browser
 
-### Tech/framework used
+### Tech and Frameworks Used
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
 ![Netlify](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7)
 ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
+![Linter](https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white)
+![Javascript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
 
 ### API Reference
 ![Firebase Realtime Database and Firestore Cloud Storage](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)
 
 ## Contributors
 - [Angie Gonzalez](https://github.com/AngieMGonzalez)
+- Bades from [Alexandre Sanlim](https://github.com/alexandresanlim/Badges4-README.md-Profile#see-more-repositories)
 
 Thank you E21
