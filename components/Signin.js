@@ -1,22 +1,17 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
 import { signIn } from '../utils/auth';
 
 function Signin() {
   return (
     <div
-      className="text-center d-flex flex-column justify-content-center align-content-center"
-      style={{
-        height: '90vh',
-        padding: '30px',
-        maxWidth: '400px',
-        margin: '0 auto',
-      }}
+      className="text-center d-flex flex-column justify-content-center align-content-center signinbtn"
     >
       <h1>SonGlue</h1>
       <p>login below</p>
-      <button type="button" className="btn btn-primary btn-lg copy-btn" onClick={signIn}>
+      <Button type="button" variant="outline-dark" className="btn-lg hoverbtn" onClick={signIn}>
         Sign In
-      </button>
+      </Button>
     </div>
   );
 }

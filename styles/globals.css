@@ -19,4 +19,36 @@ a {
 
 body {
   background-color: rgb(4, 153, 153);
+  color: rgb(202, 198, 198);
+}
+
+.signinbtn {
+  height: 90vh;
+  padding: 30px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.hoverbtn {
+  background-color: #4b93e147;
+  border-color: #000000;
+}
+
+.hoverbtn:hover {
+  color: #fff;
+  background-color: #264e7a;
+  border-color: #00404b;
+}
+
+.hoverbtn:focus {
+  color: #fff;
+  background-color: #0062cc;
+  border-color: #ff0000;
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+
+.loading {
+  color:rgba(225, 192, 30, 0.752);
+  height: 100px;
+  width: 100px;
 }
