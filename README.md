@@ -25,7 +25,7 @@ ___
 
 ## Relevant Links
 - [Check out the deployed site](https://songlue.netlify.app/)
-- [Figma Wireframes](https://www.figma.com/file/qlpuv1O0nBa1gsaRUMydaS/Songlue?node-id=0%3A1&t=dKNU5YLDvctIhoVa-1)
+- [Figma Wireframes for MVP](https://www.figma.com/file/qlpuv1O0nBa1gsaRUMydaS/Songlue?node-id=0%3A1&t=dKNU5YLDvctIhoVa-1)
 - [Project Board](https://github.com/users/AngieMGonzalez/projects/1)
 
 - [MVP ERD](https://dbdiagram.io/d/63ead9d4296d97641d80a8bd)
