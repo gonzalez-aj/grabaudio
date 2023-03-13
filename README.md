@@ -5,7 +5,7 @@
 ## Topics
 - [Overview](#overview)
 - [MVP Features](#mvp-features)
-- [Video Walkthrough of SonGlue MVP](#video-walkthrough-of-songlue-mvp)
+- [Video Walkthrough of MVP](#video-walkthrough-of-mvp)
 - [Relevant Links](#relevant-links)
 - [Code Snippet](#code-snippet)
 - [Project Screenshots](#project-screenshots)
@@ -28,7 +28,7 @@ ___
 - Users can searches their Snippets
 - Users can filter out and quickly view their favortie of their own Snippets
 
-## Video Walkthrough of SonGlue MVP
+## Video Walkthrough of MVP
 
 ## Relevant Links
 - [Check out the deployed site](https://songlue.netlify.app/)
