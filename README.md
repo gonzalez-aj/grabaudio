@@ -1,17 +1,25 @@
-# Songlue [![Netlify Status](https://api.netlify.com/api/v1/badges/05b738ef-f461-4db8-81e6-54135f2c1883/deploy-status)](https://app.netlify.com/sites/songlue/deploys)
+# SonGlue [![Netlify Status](https://api.netlify.com/api/v1/badges/05b738ef-f461-4db8-81e6-54135f2c1883/deploy-status)](https://app.netlify.com/sites/songlue/deploys)
 
-[View The App Here](https://songlue.netlify.app/)
+[View the SonGlue app Here](https://songlue.netlify.app/)
 
 ## Topics
 - [Get Started](#get-started)
+- [Overview](#overview)
+- [Features](#features)
 ___
-## About the user
+## Overview
 - The ideal user for Songlue is a musician/songwriter/composer trying to organize their songs/composition ideas
+- Songwriters can upload their unfinished musical ideas as "snippets" and assign them to a song idea
+- Musicians can view others' shared sounds if they mark them as public to get inspiration
 
-## Features
-- Full CRUD
-- Searches Snippets
-- Private and public snippets/songs
+## MVP Features
+- Musicians sign in with Google authentication
+- Songwriters can browse the Shared Sounds section to view other people's public songs and public snippets only
+- Musicians can create, read, update and delete their own song ideas
+- Musicians can create read update and delte their own snippet ideas
+- Both Snippets and Songs have information regarding BPM, Key of, Title, Description, whether it's public, and whether it's a favorite
+- Users can searches their Snippets
+- Users can filter out and quickly view their favortie of their own Snippets
 
 ## Video Walkthrough of Songlue
 
@@ -59,4 +67,5 @@ git@github.com:AngieMGonzalez/grabaudio.git
 
 ## Contributors
 - [Angie Gonzalez](https://github.com/AngieMGonzalez)
+
 Thank you E21
