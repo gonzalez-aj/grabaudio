@@ -36,29 +36,43 @@ ___
 - [Project Board](https://github.com/users/AngieMGonzalez/projects/1)
 
 - [MVP ERD](https://dbdiagram.io/d/63ead9d4296d97641d80a8bd)
-<img width="400" alt="SonGlue ERD made using dbDiagram" src="https://user-images.githubusercontent.com/114124374/222018077-3e8f43cb-0196-4a95-a518-1320d6a4d26c.png">
+<img width="500" alt="SonGlue ERD made using dbDiagram" src="https://user-images.githubusercontent.com/114124374/222018077-3e8f43cb-0196-4a95-a518-1320d6a4d26c.png">
 
 - Assumption: A song can have many snippets, but each snippet is associated with one song. 
 
 - [Flowchart](https://docs.google.com/presentation/d/1PAdFeMxQmASaOPz7SHPIN45Hd68XpYkwQtB-qsT0OXQ/edit?usp=sharing)
 
 ## Code Snippet
+To access the Firestore Cloud Storage:
 ```
 const storage = firebase.storage();
 ```
+To delete all of a Song's Snippets associated with the Song, while deleting the song too:
+```
+const deleteSongSnippets = (songId) => new Promise((resolve, reject) => {
+  getSnippetsBySong(songId).then((snippetsArray) => {
+    const deleteSnippetPromises = snippetsArray.map((snippet) => deleteSingleSnippet(snippet.firebaseKey));
+
+    Promise.all(deleteSnippetPromises).then(() => {
+      deleteSingleSong(songId).then(resolve);
+    });
+  }).catch((error) => reject(error));
+});
+```
+
 
 ## Project Screenshots
 [Home Page with Musician's Snippets](https://user-images.githubusercontent.com/114124374/224611726-4e394561-3238-4633-8abb-fa448f68968c.png)
 
-<img width="500" alt="SonGlue Home Page" src="https://user-images.githubusercontent.com/114124374/224611726-4e394561-3238-4633-8abb-fa448f68968c.png">
+<img width="600" alt="SonGlue Home Page" src="https://user-images.githubusercontent.com/114124374/224611726-4e394561-3238-4633-8abb-fa448f68968c.png">
 
 [Profile Page with Musician's Songs](https://user-images.githubusercontent.com/114124374/224612483-c5680cff-3381-4d23-a602-b927bcae31c2.png)
 
-<img width="500" alt="SonGlue Home Page" src="https://user-images.githubusercontent.com/114124374/224612483-c5680cff-3381-4d23-a602-b927bcae31c2.png">
+<img width="600" alt="SonGlue Home Page" src="https://user-images.githubusercontent.com/114124374/224612483-c5680cff-3381-4d23-a602-b927bcae31c2.png">
 
 [View Details of Snippet](https://user-images.githubusercontent.com/114124374/224612956-f99fb011-0d77-43e3-8a07-ffed04957ccd.png)
 
-<img width="500" alt="SonGlue Home Page" src="https://user-images.githubusercontent.com/114124374/224612956-f99fb011-0d77-43e3-8a07-ffed04957ccd.png">
+<img width="600" alt="SonGlue Home Page" src="https://user-images.githubusercontent.com/114124374/224612956-f99fb011-0d77-43e3-8a07-ffed04957ccd.png">
 
 
 ## Get Started
