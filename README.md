@@ -78,6 +78,6 @@ git@github.com:AngieMGonzalez/grabaudio.git
 
 ## Contributors
 - [Angie Gonzalez](https://github.com/AngieMGonzalez)
-- Bades from [Alexandre Sanlim](https://github.com/alexandresanlim/Badges4-README.md-Profile#see-more-repositories)
+- Badges from [Alexandre Sanlim](https://github.com/alexandresanlim/Badges4-README.md-Profile#see-more-repositories)
 
 Thank you E21
