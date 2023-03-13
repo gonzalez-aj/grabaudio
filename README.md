@@ -28,7 +28,7 @@ ___
 - Users can searches their Snippets
 - Users can filter out and quickly view their favortie of their own Snippets
 
-## Video Walkthrough of MVP
+## [Video Walkthrough of MVP](https://www.loom.com/share/29511fce06db4be2bfbde6a31b344a07)
 
 ## Relevant Links
 - [Check out the deployed site](https://songlue.netlify.app/)
