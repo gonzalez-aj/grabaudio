@@ -15,7 +15,7 @@
 - [Contributors](#contributors)
 ___
 ## Overview
-- The ideal user for Songlue is a musician/songwriter/composer trying to organize their songs/composition ideas
+- The ideal user for SonGlue is a musician/songwriter/composer trying to organize their songs/composition ideas
 - Songwriters can upload their unfinished musical ideas as "snippets" and assign them to a song idea
 - Musicians can view others' shared sounds if they mark them as public to get inspiration
 
@@ -36,7 +36,7 @@ ___
 - [Project Board](https://github.com/users/AngieMGonzalez/projects/1)
 
 - [MVP ERD](https://dbdiagram.io/d/63ead9d4296d97641d80a8bd)
-<img width="400" alt="Songlue ERD made using dbDiagram" src="https://user-images.githubusercontent.com/114124374/222018077-3e8f43cb-0196-4a95-a518-1320d6a4d26c.png">
+<img width="400" alt="SonGlue ERD made using dbDiagram" src="https://user-images.githubusercontent.com/114124374/222018077-3e8f43cb-0196-4a95-a518-1320d6a4d26c.png">
 
 - Assumption: A song can have many snippets, but each snippet is associated with one song. 
 
@@ -48,6 +48,18 @@ const storage = firebase.storage();
 ```
 
 ## Project Screenshots
+[Home Page with Musician's Snippets](https://user-images.githubusercontent.com/114124374/224611726-4e394561-3238-4633-8abb-fa448f68968c.png)
+
+<img width="500" alt="SonGlue Home Page" src="https://user-images.githubusercontent.com/114124374/224611726-4e394561-3238-4633-8abb-fa448f68968c.png">
+
+[Profile Page with Musician's Songs](https://user-images.githubusercontent.com/114124374/224612483-c5680cff-3381-4d23-a602-b927bcae31c2.png)
+
+<img width="500" alt="SonGlue Home Page" src="https://user-images.githubusercontent.com/114124374/224612483-c5680cff-3381-4d23-a602-b927bcae31c2.png">
+
+[View Details of Snippet](https://user-images.githubusercontent.com/114124374/224612956-f99fb011-0d77-43e3-8a07-ffed04957ccd.png)
+
+<img width="500" alt="SonGlue Home Page" src="https://user-images.githubusercontent.com/114124374/224612956-f99fb011-0d77-43e3-8a07-ffed04957ccd.png">
+
 
 ## Get Started
 1. Create a [Firebase](https://firebase.google.com/) project and set up authentication. 
@@ -60,7 +72,7 @@ git@github.com:AngieMGonzalez/grabaudio.git
 1. Import sample data found in `data` folder in to the Realtime Database 
 1. From your command line, be in the root directory and `run npm install` OR `npm i` for short
 1. Then, run `npm run prepare`
-1. To start Songlue, run `npm run dev`
+1. To start SonGlue, run `npm run dev`
 1. Open [http://localhost:3000](http://localhost:3000) with your browser
 
 ### Tech and Frameworks Used
