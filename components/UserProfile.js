@@ -18,7 +18,7 @@ export default function UserProfile() {
         <Image src={user.photoURL} alt="userURL" width="150px" height="150px" id="profilepicture" />
         <h5>Email: {user.email}</h5>
         <h5>Last Time On SonGlue: {CSTString} (CT)</h5>
-        <Button type="button" size="lg" cvariant="outline-dark" className="m-2" onClick={signOut}>
+        <Button type="button" size="lg" cvariant="outline-dark" className="btn-lg hoverbtn" onClick={signOut}>
           Sign Out
         </Button>
       </div>
