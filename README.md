@@ -28,7 +28,7 @@ ___
 - [Figma Wireframes](https://www.figma.com/file/qlpuv1O0nBa1gsaRUMydaS/Songlue?node-id=0%3A1&t=dKNU5YLDvctIhoVa-1)
 - [Project Board](https://github.com/users/AngieMGonzalez/projects/1)
 
-- [ERD](https://dbdiagram.io/d/63ead9d4296d97641d80a8bd)
+- [MVP ERD](https://dbdiagram.io/d/63ead9d4296d97641d80a8bd)
 <img width="400" alt="Songlue ERD made using dbDiagram" src="https://user-images.githubusercontent.com/114124374/222018077-3e8f43cb-0196-4a95-a518-1320d6a4d26c.png">
 
 - Assumption: A song can have many snippets, but each snippet is associated with one song. 
