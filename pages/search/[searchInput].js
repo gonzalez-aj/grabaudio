@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { getSnippets } from '../../api/snippetData';
@@ -36,10 +37,11 @@ export default function SearchResult() {
 
   return (
     <>
+      <Head><title>Search Results for {searchInput}</title></Head>
       <br />
       <h3>Search Results:</h3>
       <div className="d-flex flex-wrap">
-        {noMatch && searchResults.length === 0 && <h4>No match found for {searchInput}</h4>}
+        {noMatch && searchResults.length === 0 && <h4>No match found for: {searchInput}</h4>}
         {searchResults.map((obj) => (
           <SnippetCard key={obj.firebaseKey} snippetObj={obj} onUpdate={getSearchResults} />
         ))}

@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { faveSongs } from '../../api/songData';
 import SongCard from '../../components/SongCard';
@@ -18,6 +19,7 @@ export default function FavoriteSongs() {
 
   return (
     <>
+      <Head><title> Your Favorite Songs </title></Head>
       <div className="d-flex flex-wrap" id="profilesongs">
         {songs.map((song) => (
           <SongCard key={song.firebaseKey} songObj={song} onUpdate={getAllFaveSongs} />
