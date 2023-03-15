@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Button from 'react-bootstrap/Button';
+import { Button } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -9,12 +9,12 @@ import { useAuth } from '../utils/context/authContext';
 
 function SnippetCard({ snippetObj, onUpdate }) {
   const { user } = useAuth();
+
   const deleteSnippet = () => {
     if (window.confirm(`You wanna delete this lil snippet ${snippetObj.title}?`)) {
       deleteSingleSnippet(snippetObj.firebaseKey).then(() => onUpdate());
     }
   };
-
   return (
     <>
       <Card style={{ width: '20rem', margin: '10px' }}>
