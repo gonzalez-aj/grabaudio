@@ -237,6 +237,7 @@ SnippetForm.propTypes = {
     favorite: PropTypes.bool,
     song_id: PropTypes.string,
     firebaseKey: PropTypes.string,
+    audio_file: PropTypes.string,
   }),
 };
 
