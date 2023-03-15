@@ -47,7 +47,7 @@ function SongForm({ obj }) {
       createSong(payload).then(({ name }) => {
         const patchPayloadFBK = { firebaseKey: name };
         updateSong(patchPayloadFBK).then(() => {
-          router.push('/profile');
+          router.push('/song/yoursongs');
         });
       });
     }

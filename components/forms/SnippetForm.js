@@ -17,6 +17,7 @@ const initialState = {
   description: '',
   song_id: '',
   keyOf: 'C Major',
+  major: '',
   bpm: 40,
   isPublic: false,
   favorite: false,
@@ -128,7 +129,7 @@ function SnippetForm({ obj }) {
         </FloatingLabel>
 
         <div className="">{formInput.bpm} BPM</div>
-        <FloatingLabel className="custom-slider m-4 mb-6" label="BPM">
+        <FloatingLabel className="custom-slider m-4 mb-6" label="">
           <input
             type="range"
             min={40}
@@ -166,6 +167,35 @@ function SnippetForm({ obj }) {
             <option value="G Major">G Major</option>
           </Form.Select>
         </FloatingLabel>
+
+        <Form.Check
+          className="text-white mb-3"
+          type="radio"
+          id="major"
+          name="major"
+          label="Major"
+          checked={formInput.major}
+          onChange={(e) => {
+            setFormInput((prevState) => ({
+              ...prevState,
+              major: e.target.checked,
+            }));
+          }}
+        />
+        <Form.Check
+          className="text-white mb-3"
+          type="radio"
+          id="minor"
+          name="major"
+          label="Minor"
+          checked={!formInput.major}
+          onChange={(e) => {
+            setFormInput((prevState) => ({
+              ...prevState,
+              major: !e.target.checked,
+            }));
+          }}
+        />
 
         <div className="">Select Song</div>
         <FloatingLabel controlId="floatingSelect2" label="Song">
@@ -233,11 +263,11 @@ SnippetForm.propTypes = {
     description: PropTypes.string,
     bpm: PropTypes.number,
     keyOf: PropTypes.string,
+    major: PropTypes.bool,
     isPublic: PropTypes.bool,
     favorite: PropTypes.bool,
     song_id: PropTypes.string,
     firebaseKey: PropTypes.string,
-    audio_file: PropTypes.string,
   }),
 };
 
