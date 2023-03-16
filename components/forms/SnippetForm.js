@@ -17,7 +17,7 @@ const initialState = {
   description: '',
   song_id: '',
   keyOf: 'C Major',
-  major: '',
+  major: true,
   bpm: 40,
   isPublic: false,
   favorite: false,
@@ -153,18 +153,21 @@ function SnippetForm({ obj }) {
             value={formInput.keyOf}
             required
           >
-            <option value="Ab Major">Ab Major</option>
-            <option value="A Major">A Major</option>
-            <option value="Bb Major">Bb Major</option>
-            <option value="B Major">B Major</option>
-            <option value="C Major">C Major</option>
-            <option value="Cb Major">C#/Db Major</option>
-            <option value="D Major">D Major</option>
-            <option value="Eb Major">Eb Major</option>
-            <option value="E Major">E Major</option>
-            <option value="F Major">F Major</option>
-            <option value="Fb Major">F#/Gb Major</option>
-            <option value="G Major">G Major</option>
+            <option value="Ab">A&#9837;</option>
+            <option value="A">A</option>
+            <option value="Bb">B&#9837;</option>
+            <option value="B">B</option>
+            <option value="Cb">C&#9837; </option>
+            <option value="C">C</option>
+            <option value="C#">C&#9839;</option>
+            <option value="Db">D&#9837;</option>
+            <option value="D">D</option>
+            <option value="Eb">E&#9837;</option>
+            <option value="E">E</option>
+            <option value="F">F</option>
+            <option value="F#">F&#9839;</option>
+            <option value="G">G</option>
+            <option value="g#">g&#9839;</option>
           </Form.Select>
         </FloatingLabel>
 

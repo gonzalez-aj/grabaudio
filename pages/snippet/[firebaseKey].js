@@ -41,7 +41,7 @@ export default function ViewSnippet() {
           </audio>
 
           <h6>Description:</h6> <p>{snippetDetails?.description}</p>
-          <h6>Key:</h6> <p>{snippetDetails?.keyOf}</p>
+          <h6>Key:</h6> <p>{snippetDetails?.keyOf} {snippetDetails.major === true ? 'Major' : 'Minor' }</p>
           <h6>BPM:</h6> <p>{snippetDetails?.bpm}</p>
           <p>
             {snippetDetails.isPublic ? 'Shared Sound 👥' : 'Private 🔒'}

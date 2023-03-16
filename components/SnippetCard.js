@@ -27,7 +27,7 @@ function SnippetCard({ snippetObj, onUpdate }) {
             <track kind="captions" />
           </audio>
 
-          <p className="card-text bold"> Description: {snippetObj?.description} <br /> Key: {snippetObj?.keyOf} <br /> BPM: {snippetObj.bpm} </p>
+          <p className="card-text bold"> Description: {snippetObj?.description} <br /> Key: {snippetObj?.keyOf} {snippetObj.major === true ? 'Major' : 'Minor' } <br /> BPM: {snippetObj.bpm} </p>
           <Link href={`/snippet/${snippetObj?.firebaseKey}`} passHref>
             <Button variant="outline-dark" className="m-2">view</Button>
           </Link>
@@ -54,6 +54,7 @@ SnippetCard.propTypes = {
     favorite: PropTypes.bool,
     song_id: PropTypes.string,
     keyOf: PropTypes.string,
+    major: PropTypes.bool,
     firebaseKey: PropTypes.string,
     uid: PropTypes.string,
   }).isRequired,
