@@ -111,18 +111,37 @@ function SongForm({ obj }) {
             value={formInput.keyOf}
             required
           >
-            <option value="Ab Major">Ab Major</option>
-            <option value="A Major">A Major</option>
-            <option value="Bb Major">Bb Major</option>
-            <option value="B Major">B Major</option>
-            <option value="C Major">C Major</option>
-            <option value="Cb Major">C#/Db Major</option>
-            <option value="D Major">D Major</option>
-            <option value="Eb Major">Eb Major</option>
-            <option value="E Major">E Major</option>
-            <option value="F Major">F Major</option>
-            <option value="Fb Major">F#/Gb Major</option>
-            <option value="G Major">G Major</option>
+            <option value="A♭ maj">A&#9837; maj</option>
+            <option value="A maj">A maj</option>
+            <option value="B♭ maj">B&#9837; maj</option>
+            <option value="B maj"> B maj</option>
+            <option value="C♭ maj">C&#9837; maj</option>
+            <option value="C maj">Cmaj</option>
+            <option value="C♯ maj">C&#9839; maj</option>
+            <option value="D♭ maj">D&#9837; maj</option>
+            <option value="D maj">D maj</option>
+            <option value="E♭ maj">E&#9837; maj</option>
+            <option value="E maj">E maj</option>
+            <option value="F maj">F maj</option>
+            <option value="F♯ maj">F&#9839; maj</option>
+            <option value="G maj">G maj</option>
+            <option value="G♭ maj">G&#9837; maj</option>
+            <option disabled>───────────</option>
+            <option value="A♭ min">A&#9837; min</option>
+            <option value="A min">A min</option>
+            <option value="B♭ min">B&#9837; min</option>
+            <option value="B min">B min</option>
+            <option value="C min">C min</option>
+            <option value="C♯ min">C&#9839; min</option>
+            <option value="D min">D min</option>
+            <option value="D♯ min">D&#9839; min</option>
+            <option value="D♭ min">D&#9837; min</option>
+            <option value="E♭ min">E&#9837; min</option>
+            <option value="E min">E min</option>
+            <option value="F min">F min</option>
+            <option value="F♯ min">F&#9839; min</option>
+            <option value="G min">G min</option>
+            <option value="G♯ min">g&#9839; min</option>
           </Form.Select>
         </FloatingLabel>
 
