@@ -17,7 +17,6 @@ const initialState = {
   description: '',
   song_id: '',
   keyOf: 'C Major',
-  major: true,
   bpm: 40,
   isPublic: false,
   favorite: false,
@@ -153,52 +152,39 @@ function SnippetForm({ obj }) {
             value={formInput.keyOf}
             required
           >
-            <option value="Ab">A&#9837;</option>
-            <option value="A">A</option>
-            <option value="Bb">B&#9837;</option>
-            <option value="B">B</option>
-            <option value="Cb">C&#9837; </option>
-            <option value="C">C</option>
-            <option value="C#">C&#9839;</option>
-            <option value="Db">D&#9837;</option>
-            <option value="D">D</option>
-            <option value="Eb">E&#9837;</option>
-            <option value="E">E</option>
-            <option value="F">F</option>
-            <option value="F#">F&#9839;</option>
-            <option value="G">G</option>
-            <option value="g#">g&#9839;</option>
+            <option value="A♭ maj">A&#9837; maj</option>
+            <option value="A maj">A maj</option>
+            <option value="B♭ maj">B&#9837; maj</option>
+            <option value="B maj"> B maj</option>
+            <option value="C♭ maj">C&#9837; maj</option>
+            <option value="C maj">Cmaj</option>
+            <option value="C♯ maj">C&#9839; maj</option>
+            <option value="D♭ maj">D&#9837; maj</option>
+            <option value="D maj">D maj</option>
+            <option value="E♭ maj">E&#9837; maj</option>
+            <option value="E maj">E maj</option>
+            <option value="F maj">F maj</option>
+            <option value="F♯ maj">F&#9839; maj</option>
+            <option value="G maj">G maj</option>
+            <option value="G♭ maj">G&#9837; maj</option>
+            <option disabled>───────────</option>
+            <option value="A♭ min">A&#9837; min</option>
+            <option value="A min">A min</option>
+            <option value="B♭ min">B&#9837; min</option>
+            <option value="B min">B min</option>
+            <option value="C min">C min</option>
+            <option value="C♯ min">C&#9839; min</option>
+            <option value="D min">D min</option>
+            <option value="D♯ min">D&#9839; min</option>
+            <option value="D♭ min">D&#9837; min</option>
+            <option value="E♭ min">E&#9837; min</option>
+            <option value="E min">E min</option>
+            <option value="F min">F min</option>
+            <option value="F♯ min">F&#9839; min</option>
+            <option value="G min">G min</option>
+            <option value="G♯ min">g&#9839; min</option>
           </Form.Select>
         </FloatingLabel>
-
-        <Form.Check
-          className="text-white mb-3"
-          type="radio"
-          id="major"
-          name="major"
-          label="Major"
-          checked={formInput.major}
-          onChange={(e) => {
-            setFormInput((prevState) => ({
-              ...prevState,
-              major: e.target.checked,
-            }));
-          }}
-        />
-        <Form.Check
-          className="text-white mb-3"
-          type="radio"
-          id="minor"
-          name="major"
-          label="Minor"
-          checked={!formInput.major}
-          onChange={(e) => {
-            setFormInput((prevState) => ({
-              ...prevState,
-              major: !e.target.checked,
-            }));
-          }}
-        />
 
         <div className="">Select Song</div>
         <FloatingLabel controlId="floatingSelect2" label="Song">
@@ -266,7 +252,6 @@ SnippetForm.propTypes = {
     description: PropTypes.string,
     bpm: PropTypes.number,
     keyOf: PropTypes.string,
-    major: PropTypes.bool,
     isPublic: PropTypes.bool,
     favorite: PropTypes.bool,
     song_id: PropTypes.string,
