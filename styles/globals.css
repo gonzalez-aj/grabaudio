@@ -64,3 +64,7 @@ body {
   background-color: #45364B;
   color: #B5C2B7;
 }
+
+.form-lyrics {
+  white-space: pre-line;
+}

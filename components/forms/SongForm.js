@@ -12,6 +12,7 @@ const initialState = {
   firebaseKey: '',
   title: '',
   description: '',
+  lyrics: '',
   bpm: 40,
   keyOf: '',
   isPublic: false,
@@ -41,8 +42,10 @@ function SongForm({ obj }) {
       updateSong(formInput)
         .then(() => router.push('/song/yoursongs'));
     } else {
+      // const lyrics = document.getElementById('lyrics')?.value ?? '';
+      const lyricsWithLineBreaks = formInput.lyrics.replace(/[\r\n]+/g, '\\n');
       const payload = {
-        ...formInput, uid: user.uid,
+        ...formInput, uid: user.uid, lyrics: lyricsWithLineBreaks,
       };
       createSong(payload).then(({ name }) => {
         const patchPayloadFBK = { firebaseKey: name };
@@ -83,6 +86,20 @@ function SongForm({ obj }) {
             value={formInput.description}
             onChange={handleChange}
             required
+          />
+        </FloatingLabel>
+
+        <div className="">Lyrics</div>
+        <FloatingLabel controlId="floatingTextarea2" label="Song Lyrics" className="mb-3">
+          <Form.Control
+            as="textarea"
+            placeholder="Lyrics"
+            style={{ height: '200px' }}
+            name="lyrics"
+            value={formInput.lyrics}
+            onChange={handleChange}
+            required
+            className="form-lyrics"
           />
         </FloatingLabel>
 
@@ -185,6 +202,7 @@ SongForm.propTypes = {
   obj: PropTypes.shape({
     title: PropTypes.string,
     description: PropTypes.string,
+    lyrics: PropTypes.string,
     bpm: PropTypes.number,
     keyOf: PropTypes.string,
     isPublic: PropTypes.bool,
