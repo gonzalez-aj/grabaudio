@@ -17,7 +17,7 @@ function SongCard({ songObj, onUpdate }) {
 
   return (
     <>
-      <Card style={{ width: '20rem', margin: '10px' }}>
+      <Card className="song-card" style={{ width: '20rem', margin: '10px' }}>
         <Image variant="top" src={songluetransparent} alt={songObj.title} />
         <Card.Body>
           <Card.Title>{songObj.title}</Card.Title>

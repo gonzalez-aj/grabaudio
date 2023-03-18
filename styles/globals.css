@@ -18,8 +18,8 @@ a {
 }
 
 body {
-  background-color: rgb(4, 153, 153);
-  color: rgb(0, 0, 0);
+  background-color: #8C93A8;
+  color: #2D2327;
 }
 
 .signinbtn {
@@ -51,4 +51,16 @@ body {
   color:rgba(225, 150, 30, 0.657);
   height: 100px;
   width: 100px;
+}
+
+.snippet-card {
+  width: '20rem';
+  margin: '10px';
+  background-color: #62466B; 
+  color: #B5C2B7;
+}
+
+.song-card {
+  background-color: #45364B;
+  color: #B5C2B7;
 }

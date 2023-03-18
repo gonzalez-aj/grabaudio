@@ -17,7 +17,7 @@ function SnippetCard({ snippetObj, onUpdate }) {
   };
   return (
     <>
-      <Card style={{ width: '20rem', margin: '10px' }}>
+      <Card className="snippet-card" style={{ width: '20rem', margin: '10px' }}>
         <Image variant="top" src={songluetransparent} alt={snippetObj?.title} />
         <Card.Body>
           <Card.Title>{snippetObj?.title}</Card.Title>
