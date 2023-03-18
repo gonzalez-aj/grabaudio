@@ -50,7 +50,7 @@ export default function ViewSong() {
             </p>
 
             <Link href={`/song/edit/${songDetails.firebaseKey}`} passHref>
-              {songDetails.uid === user.uid ? (<Button variant="outline-dark" className="m-2">edit</Button>) : '' }
+              {songDetails.uid === user.uid ? (<Button variant="outline-light" className="m-2">edit</Button>) : '' }
             </Link>
 
           </Card.Body>

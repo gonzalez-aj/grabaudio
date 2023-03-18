@@ -32,6 +32,7 @@ export default function YourSongs() {
   return (
     <>
       <Head><title>All Your Songs</title></Head>
+      <br />
       <h3>These are all of the songs you created:</h3>
       {noSnips && <h4>There are no Songs here, yet!</h4>}
       <div className="d-flex flex-wrap" id="profilesongs">

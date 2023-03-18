@@ -157,7 +157,7 @@ function SnippetForm({ obj }) {
             <option value="B♭ maj">B&#9837; maj</option>
             <option value="B maj"> B maj</option>
             <option value="C♭ maj">C&#9837; maj</option>
-            <option value="C maj">Cmaj</option>
+            <option value="C maj">C maj</option>
             <option value="C♯ maj">C&#9839; maj</option>
             <option value="D♭ maj">D&#9837; maj</option>
             <option value="D maj">D maj</option>

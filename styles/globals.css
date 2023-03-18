@@ -48,9 +48,9 @@ body {
 }
 
 .loading {
-  color:rgba(225, 150, 30, 0.657);
-  height: 100px;
-  width: 100px;
+  color: #62466B;
+  height: 300px;
+  width: 200px;
 }
 
 .snippet-card {

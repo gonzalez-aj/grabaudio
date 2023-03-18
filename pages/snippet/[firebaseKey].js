@@ -16,7 +16,11 @@ export default function ViewSnippet() {
   const { user } = useAuth();
   const { firebaseKey } = router.query;
   const audioRef = useRef(null);
-
+  const deleteSnip = () => {
+    if (window.confirm(`You wanna delete this lil snippet ${snippetDetails.title}?`)) {
+      deleteSingleSnippet(snippetDetails.firebaseKey).then(() => router.push('/'));
+    }
+  };
   useEffect(() => {
     viewSnippetDetails(firebaseKey)?.then(setSnippetDetails);
   }, [firebaseKey]);
@@ -31,7 +35,7 @@ export default function ViewSnippet() {
         Lil Snippet of Sound: {snippetDetails?.title}
       </h1>
       <h3>A piece of Song: {snippetDetails?.songData?.title}</h3>
-      <Card style={{ width: '50rem', margin: '20px' }}>
+      <Card className="snippet-card" style={{ width: '50rem', margin: '20px' }}>
         <Image variant="top" src={songluetransparent} alt={snippetDetails?.title} />
         <Card.Body>
           <Card.Title>{snippetDetails?.title}</Card.Title>
@@ -41,7 +45,7 @@ export default function ViewSnippet() {
           </audio>
 
           <h6>Description:</h6> <p>{snippetDetails?.description}</p>
-          <h6>Key:</h6> <p>{snippetDetails?.keyOf} {snippetDetails.major === true ? 'Major' : 'Minor' }</p>
+          <h6>Key:</h6> <p>{snippetDetails?.keyOf}</p>
           <h6>BPM:</h6> <p>{snippetDetails?.bpm}</p>
           <p>
             {snippetDetails.isPublic ? 'Shared Sound 👥' : 'Private 🔒'}
@@ -54,7 +58,7 @@ export default function ViewSnippet() {
             {snippetDetails.uid === user.uid ? (<Button variant="outline-dark" className="m-2">edit</Button>) : '' }
           </Link>
 
-          {snippetDetails.uid === user.uid ? (<Button variant="outline-dark" className="m-2" onClick={deleteSingleSnippet}>delete</Button>) : ''}
+          {snippetDetails.uid === user.uid ? (<Button variant="outline-dark" className="m-2" onClick={deleteSnip}>delete</Button>) : ''}
         </Card.Body>
       </Card>
     </>
