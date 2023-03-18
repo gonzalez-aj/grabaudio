@@ -34,7 +34,7 @@ export default function ViewSong() {
         <h1>
           Song: {songDetails.title}
         </h1>
-        <Card style={{ width: '50rem', margin: '20px' }}>
+        <Card className="song-card" style={{ width: '50rem', margin: '20px' }}>
           <Image variant="top" src={songluetransparent} alt={songDetails.title} />
           <Card.Body>
             <Card.Title>{songDetails.title}</Card.Title>
