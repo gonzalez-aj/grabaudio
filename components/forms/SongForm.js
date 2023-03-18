@@ -39,7 +39,7 @@ function SongForm({ obj }) {
     e.preventDefault();
     if (obj.firebaseKey) {
       updateSong(formInput)
-        .then(() => router.push('/profile'));
+        .then(() => router.push('/song/yoursongs'));
     } else {
       const payload = {
         ...formInput, uid: user.uid,
@@ -87,7 +87,7 @@ function SongForm({ obj }) {
         </FloatingLabel>
 
         <div className="">{formInput.bpm} BPM</div>
-        <FloatingLabel className="m-4 mb-6" label="BPM">
+        <FloatingLabel className="m-4 mb-6" label="">
           <input
             type="range"
             min={40}
@@ -116,7 +116,7 @@ function SongForm({ obj }) {
             <option value="B♭ maj">B&#9837; maj</option>
             <option value="B maj"> B maj</option>
             <option value="C♭ maj">C&#9837; maj</option>
-            <option value="C maj">Cmaj</option>
+            <option value="C maj">C maj</option>
             <option value="C♯ maj">C&#9839; maj</option>
             <option value="D♭ maj">D&#9837; maj</option>
             <option value="D maj">D maj</option>

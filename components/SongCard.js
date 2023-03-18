@@ -23,14 +23,17 @@ function SongCard({ songObj, onUpdate }) {
           <Card.Title>{songObj.title}</Card.Title>
 
           <p className="card-text bold"> Description: {songObj.description} <br /> Key: {songObj.keyOf} <br /> BPM: {songObj.bpm} </p>
+          <p>
+            {songObj.isPublic ? '👥' : '🔒'}  {songObj.favorite ? '⭐️' : ''}
+          </p>
           <Link href={`/song/${songObj.firebaseKey}`} passHref>
-            <Button variant="outline-dark" className="m-2">view</Button>
+            <Button variant="outline-light" className="m-2">view</Button>
           </Link>
           <Link href={`/song/edit/${songObj.firebaseKey}`} passHref>
-            {songObj.uid === user.uid ? (<Button variant="outline-dark" className="m-2">edit</Button>) : '' }
+            {songObj.uid === user.uid ? (<Button variant="outline-light" className="m-2">edit</Button>) : '' }
           </Link>
 
-          {songObj.uid === user.uid ? (<Button variant="outline-dark" className="m-2" onClick={deleteThisSong}>delete</Button>) : ''}
+          {songObj.uid === user.uid ? (<Button variant="outline-light" className="m-2" onClick={deleteThisSong}>delete</Button>) : ''}
 
         </Card.Body>
       </Card>

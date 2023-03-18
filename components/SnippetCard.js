@@ -28,6 +28,9 @@ function SnippetCard({ snippetObj, onUpdate }) {
           </audio>
 
           <p className="card-text bold"> Description: {snippetObj?.description} <br /> Key: {snippetObj?.keyOf} <br /> BPM: {snippetObj.bpm} </p>
+          <p>
+            {snippetObj.isPublic ? '👥' : '🔒'}  {snippetObj.favorite ? '⭐️' : ''}
+          </p>
           <Link href={`/snippet/${snippetObj?.firebaseKey}`} passHref>
             <Button variant="outline-dark" className="m-2">view</Button>
           </Link>
