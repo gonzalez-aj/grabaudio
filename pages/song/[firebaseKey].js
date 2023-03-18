@@ -15,9 +15,6 @@ export default function ViewSong() {
   const router = useRouter();
   const { user } = useAuth();
   const { firebaseKey } = router.query;
-  const getLyrics = songDetails.lyrics;
-  // const lyricsWithBreaks = getLyrics.replace(/\\n/g, '\n');
-  const lyricsWithBreaks = getLyrics && getLyrics.replace(/\n/g, <br />);
 
   const forOnUpdateOfSongs = () => {
     viewSongDetails(firebaseKey).then(setSongDetails);
@@ -54,9 +51,8 @@ export default function ViewSong() {
             <h6>
               Lyrics:
             </h6>
-            <p>
-              {lyricsWithBreaks}
-              {/* {getLyrics.split('\n').map((line) => <p>{line}<br /></p>)} */}
+            <p className="form-lyrics">
+              {songDetails.lyrics}
             </p>
             <Link href={`/song/edit/${songDetails.firebaseKey}`} passHref>
               {songDetails.uid === user.uid ? (<Button variant="outline-light" className="m-2">edit</Button>) : '' }

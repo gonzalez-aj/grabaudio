@@ -42,8 +42,7 @@ function SongForm({ obj }) {
       updateSong(formInput)
         .then(() => router.push('/song/yoursongs'));
     } else {
-      // const lyrics = document.getElementById('lyrics')?.value ?? '';
-      const lyricsWithLineBreaks = formInput.lyrics.replace(/[\r\n]+/g, '\\n');
+      const lyricsWithLineBreaks = formInput.lyrics.replace(/[\r\n]+/g, '\\\n');
       const payload = {
         ...formInput, uid: user.uid, lyrics: lyricsWithLineBreaks,
       };
