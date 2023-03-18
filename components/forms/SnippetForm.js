@@ -15,8 +15,9 @@ const initialState = {
   audio_url: '',
   title: '',
   description: '',
+  lyrics: '',
   song_id: '',
-  keyOf: 'C Major',
+  keyOf: 'C Maj',
   bpm: 40,
   isPublic: false,
   favorite: false,
@@ -122,6 +123,19 @@ function SnippetForm({ obj }) {
             style={{ height: '100px' }}
             name="description"
             value={formInput.description}
+            onChange={handleChange}
+            required
+          />
+        </FloatingLabel>
+
+        <div className="">Lyrics</div>
+        <FloatingLabel controlId="floatingTextarea2" label="Snippet Lyrics" className="mb-3">
+          <Form.Control
+            as="textarea"
+            placeholder="Lyrics"
+            style={{ height: '200px' }}
+            name="lyrics"
+            value={formInput.lyrics}
             onChange={handleChange}
             required
           />
@@ -250,6 +264,7 @@ SnippetForm.propTypes = {
     audio_url: PropTypes.string,
     title: PropTypes.string,
     description: PropTypes.string,
+    lyrics: PropTypes.string,
     bpm: PropTypes.number,
     keyOf: PropTypes.string,
     isPublic: PropTypes.bool,
