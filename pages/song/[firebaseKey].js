@@ -63,7 +63,7 @@ export default function ViewSong() {
         <hr />
         <h3>These are the snippets from song: {songDetails.title} </h3>
 
-        <div className="d-flex flex-column">
+        <div className="d-flex flex-row" style={{ width: '200%', flexWrap: 'wrap' }}>
           {songDetails.snippets?.map((snippetObject) => (
             <SnippetCard key={snippetObject.firebaseKey} snippetObj={snippetObject} onUpdate={forOnUpdateOfSongs} />
           ))}

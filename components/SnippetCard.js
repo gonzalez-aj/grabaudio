@@ -11,7 +11,7 @@ function SnippetCard({ snippetObj, onUpdate }) {
   const { user } = useAuth();
 
   const deleteSnippet = () => {
-    if (window.confirm(`You wanna delete this lil snippet ${snippetObj.title}?`)) {
+    if (window.confirm(`🛑 You wanna delete this lil snippet ${snippetObj.title}?`)) {
       deleteSingleSnippet(snippetObj.firebaseKey).then(() => onUpdate());
     }
   };
@@ -32,13 +32,13 @@ function SnippetCard({ snippetObj, onUpdate }) {
             {snippetObj.isPublic ? '👥' : '🔒'}  {snippetObj.favorite ? '⭐️' : ''}
           </p>
           <Link href={`/snippet/${snippetObj?.firebaseKey}`} passHref>
-            <Button variant="outline-dark" className="m-2">view</Button>
+            <Button cvariant="outline-dark" className="m-2 snipBtns">view</Button>
           </Link>
           <Link href={`/snippet/edit/${snippetObj?.firebaseKey}`} passHref>
-            {snippetObj.uid === user.uid ? (<Button variant="outline-dark" className="m-2">edit</Button>) : '' }
+            {snippetObj.uid === user.uid ? (<Button cvariant="outline-dark" className="m-2 snipBtns">edit</Button>) : '' }
           </Link>
 
-          {snippetObj.uid === user.uid ? (<Button variant="outline-dark" className="m-2" onClick={deleteSnippet}>delete</Button>) : ''}
+          {snippetObj.uid === user.uid ? (<Button cvariant="outline-dark" className="m-2 snipBtns" onClick={deleteSnippet}>delete</Button>) : ''}
 
         </Card.Body>
       </Card>
