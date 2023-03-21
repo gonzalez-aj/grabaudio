@@ -35,8 +35,8 @@ body {
 }
 
 .hoverbtn:hover {
-  color: #fff;
-  background-color: #264e7a;
+  color: #B5C2B7;
+  background-color: #62466B;
   border-color: #00404b;
 }
 
@@ -67,4 +67,23 @@ body {
 
 .form-lyrics {
   white-space: pre-line;
+}
+
+.snipBtns {
+  background-color: #f1f3f4;
+  border-color: #000000;
+  color: black;
+}
+
+.snipBtns:hover {
+  color: #B5C2B7;
+  background-color: black;
+  border-color: black;
+}
+
+.snipBtns:focus {
+  color: #fff;
+  background-color: #0062cc;
+  border-color: #ff0000;
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
 }

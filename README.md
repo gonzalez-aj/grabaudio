@@ -62,7 +62,7 @@ const deleteSongSnippets = (songId) => new Promise((resolve, reject) => {
 ```
 
 
-## Project Screenshots
+## Project Screenshots of MVP
 [Home Page with Musician's Snippets](https://user-images.githubusercontent.com/114124374/224611726-4e394561-3238-4633-8abb-fa448f68968c.png)
 
 <img width="600" alt="SonGlue Home Page" src="https://user-images.githubusercontent.com/114124374/224611726-4e394561-3238-4633-8abb-fa448f68968c.png">
