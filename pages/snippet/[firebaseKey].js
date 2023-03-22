@@ -47,6 +47,12 @@ export default function ViewSnippet() {
           <h6>Description:</h6> <p>{snippetDetails?.description}</p>
           <h6>Key:</h6> <p>{snippetDetails?.keyOf}</p>
           <h6>BPM:</h6> <p>{snippetDetails?.bpm}</p>
+          <h6>
+            Lyrics:
+          </h6>
+          <p className="form-lyrics">
+            {snippetDetails.lyrics}
+          </p>
           <p>
             {snippetDetails.isPublic ? 'Shared Sound 👥' : 'Private 🔒'}
           </p>
