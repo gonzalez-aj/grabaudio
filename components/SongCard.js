@@ -3,14 +3,14 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Link from 'next/link';
 import Image from 'next/image';
-import songluetransparent from '../images/songluetransparent.png';
+import GlueBottle from '../images/GlueBottle.png';
 import { useAuth } from '../utils/context/authContext';
 import { deleteSongSnippets } from '../api/mergedData';
 
 function SongCard({ songObj, onUpdate }) {
   const { user } = useAuth();
   const deleteThisSong = () => {
-    if (window.confirm(`Sure you wanna delete this song ${songObj.title}? and it's snippets`)) {
+    if (window.confirm(`🛑 Sure you wanna delete this song ${songObj.title}? and it's snippets`)) {
       deleteSongSnippets(songObj.firebaseKey).then(() => onUpdate());
     }
   };
@@ -18,7 +18,7 @@ function SongCard({ songObj, onUpdate }) {
   return (
     <>
       <Card className="song-card" style={{ width: '20rem', margin: '10px' }}>
-        <Image variant="top" src={songluetransparent} alt={songObj.title} />
+        <Image variant="top" src={GlueBottle} alt={songObj.title} />
         <Card.Body>
           <Card.Title>{songObj.title}</Card.Title>
 
