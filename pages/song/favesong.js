@@ -20,6 +20,8 @@ export default function FavoriteSongs() {
   return (
     <>
       <Head><title> Your Favorite Songs </title></Head>
+      <br />
+      <h3>These are your favorite songs:</h3>
       <div className="d-flex flex-wrap" id="profilesongs">
         {songs.map((song) => (
           <SongCard key={song.firebaseKey} songObj={song} onUpdate={getAllFaveSongs} />
