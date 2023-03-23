@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import Link from 'next/link';
 import Image from 'next/image';
-import songluetransparent from '../images/songluetransparent.png';
+import rainbowave from '../images/rainbowave.png';
 import { deleteSingleSnippet } from '../api/snippetData';
 import { useAuth } from '../utils/context/authContext';
 
@@ -18,7 +18,7 @@ function SnippetCard({ snippetObj, onUpdate }) {
   return (
     <>
       <Card className="snippet-card" style={{ width: '20rem', margin: '10px' }}>
-        <Image variant="top" src={songluetransparent} alt={snippetObj?.title} />
+        <Image variant="top" src={rainbowave} alt={snippetObj?.title} />
         <Card.Body>
           <Card.Title>{snippetObj?.title}</Card.Title>
 
