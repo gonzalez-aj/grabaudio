@@ -22,6 +22,22 @@ body {
   color: #2D2327;
 }
 
+.signin-container {
+  position: relative;
+}
+
+.signin-container h1 {
+  margin-bottom: -30px;
+  z-index: 1;
+}
+
+.signin-container img {
+  z-index: 0;
+  margin-top: -10px;
+}
+.signin-container button {
+  margin-top: 20px;
+}
 .signinbtn {
   height: 90vh;
   padding: 30px;
