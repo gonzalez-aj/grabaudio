@@ -14,7 +14,7 @@ const initialState = {
   description: '',
   lyrics: '',
   bpm: 40,
-  keyOf: '',
+  keyOf: 'C Maj',
   isPublic: false,
   favorite: false,
 };
@@ -42,9 +42,8 @@ function SongForm({ obj }) {
       updateSong(formInput)
         .then(() => router.push('/song/yoursongs'));
     } else {
-      const lyricsWithLineBreaks = formInput.lyrics.replace(/[\r\n]+/g, '\\\n');
       const payload = {
-        ...formInput, uid: user.uid, lyrics: lyricsWithLineBreaks,
+        ...formInput, uid: user.uid,
       };
       createSong(payload).then(({ name }) => {
         const patchPayloadFBK = { firebaseKey: name };
@@ -98,7 +97,6 @@ function SongForm({ obj }) {
             value={formInput.lyrics}
             onChange={handleChange}
             required
-            className="form-lyrics"
           />
         </FloatingLabel>
 

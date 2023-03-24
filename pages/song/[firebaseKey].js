@@ -100,7 +100,12 @@ export default function ViewSong() {
             <p>
               {songDetails.favorite ? 'Favorite ⭐️⭐️⭐️⭐️' : 'Favorite? Nah'}
             </p>
-
+            <h6>
+              Lyrics:
+            </h6>
+            <p className="form-lyrics">
+              {songDetails.lyrics}
+            </p>
             <Link href={`/song/edit/${songDetails.firebaseKey}`} passHref>
               {songDetails.uid === user.uid ? (<Button variant="outline-dark" className="m-2">edit</Button>) : '' }
             </Link>
