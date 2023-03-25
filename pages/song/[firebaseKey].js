@@ -44,7 +44,7 @@ export default function ViewSong() {
 
               <h6>Description:</h6> <p>{songDetails.description}</p>
               <p>Key: {songDetails.keyOf}</p>
-              <p>BPM  {songDetails.bpm}</p>
+              <p>BPM:  {songDetails.bpm}</p>
               <p>
                 {songDetails.isPublic ? 'Shared Sound 👥' : 'Private 🔒'}
               </p>
@@ -65,7 +65,7 @@ export default function ViewSong() {
           </Card>
           <hr />
           <h3>These are the snippets from song: {songDetails.title} </h3>
-          <div className="d-flex flex-column">
+          <div className="public-card-container, d-flex flex-wrap">
             {songDetails.snippets?.map((snippetObject) => (
               <SnippetCard key={snippetObject.firebaseKey} snippetObj={snippetObject} onUpdate={forOnUpdateOfSongs} />
             ))}

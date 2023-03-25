@@ -35,7 +35,12 @@ export default function ViewSnippet() {
         <h1>
           Lil Snippet of Sound: {snippetDetails?.title}
         </h1>
-        <h3>A piece of Song: {snippetDetails?.songData?.title}</h3>
+        <h3>
+          A piece of Song: {snippetDetails?.songData?.title}
+          <Link href={`/song/${snippetDetails?.songData?.firebaseKey}`} passHref>
+            <Button variant="outline-dark" className="m-2">view {snippetDetails?.songData?.title} </Button>
+          </Link>
+        </h3>
         <Card className="snippet-card" style={{ width: '50rem', margin: '20px' }}>
           <Image variant="top" src={rainbowave} alt={snippetDetails?.title} />
           <Card.Body>
@@ -45,9 +50,9 @@ export default function ViewSnippet() {
               <track kind="captions" />
             </audio>
 
-            <h6>Description:</h6> <p>{snippetDetails?.description}</p>
-            <h6>Key:</h6> <p>{snippetDetails?.keyOf}</p>
-            <h6>BPM:</h6> <p>{snippetDetails?.bpm}</p>
+            <p>Description: {snippetDetails?.description}</p>
+            <p>Key: {snippetDetails?.keyOf}</p>
+            <p>BPM: {snippetDetails?.bpm}</p>
             <h6>
               Lyrics:
             </h6>
