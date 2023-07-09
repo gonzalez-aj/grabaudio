@@ -29,7 +29,7 @@ ___
 - Users can filter out and quickly view their favortie of their own Snippets
 
 ## Video Walkthrough of MVP
-- https://www.loom.com/share/29511fce06db4be2bfbde6a31b344a0
+- https://www.loom.com/share/29511fce06db4be2bfbde6a31b344a07?sid=079313a7-2535-4f19-8c69-a1f39c361975
 
 ## Relevant Links
 - [Check out the deployed site](https://songlue.netlify.app/)
